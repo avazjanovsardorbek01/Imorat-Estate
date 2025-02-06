@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import { Carousel } from "antd";
 import { LeftOutlined, RightOutlined } from "@ant-design/icons";
 import HeroOne from "../../assets/Images/Hero-One.jpg";
@@ -7,14 +7,17 @@ import HeroThree from "../../assets/Images/Hero-Three.jpg";
 import "./carousel.css";
 
 const CarouselContainer = () => {
+  const [progress, setProgress] = useState(0);
+
   return (
     <div className="carousel-container">
       <Carousel
         autoplay
         arrows
-        dots={false}
-        prevArrow={<LeftOutlined className="custom-arrow left-arrow" />}
-        nextArrow={<RightOutlined className="custom-arrow right-arrow" />}
+        dots={true}
+        // prevArrow={<LeftOutlined className="custom-arrow " />}
+        // nextArrow={<RightOutlined className="custom-arrow " />}
+        beforeChange={() => setProgress(0)}
       >
         <div className="carousel-wrap">
           <img src={HeroOne} alt="Hero One" className="carousel-image" />
@@ -26,6 +29,10 @@ const CarouselContainer = () => {
           <img src={HeroThree} alt="Hero Three" className="carousel-image" />
         </div>
       </Carousel>
+
+      <div className="carousel-progress">
+        <div className="progress-bar" style={{ width: `${progress}%` }} />
+      </div>
     </div>
   );
 };

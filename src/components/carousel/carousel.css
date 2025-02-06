@@ -1,68 +1,84 @@
-/* Carousel container */
+/* Основные стили */
 .carousel-container {
-  width: 95%; /* Kattalashtirdik */
-  max-width: 1600px; /* Maksimal kengligi */
-  margin: 0 auto;
   position: relative;
-  padding: 40px 0;
+  width: calc(100% - 40px);
+  height: 600px;
+  overflow: hidden;
+  border-radius: 20px;
+  margin: 20px;
+  padding-top: 50px;
 }
 
-/* Carousel image */
 .carousel-wrap {
-  border-radius: 16px;
+  position: relative;
+  width: 100%;
+  height: 100%;
+  border-radius: 20px;
   overflow: hidden;
-  display: flex;
-  justify-content: center;
-  align-items: center;
 }
 
 .carousel-image {
   width: 100%;
-  max-height: 600px; /* Kattaroq bo‘lishi uchun */
+  height: 100%;
   object-fit: cover;
-  border-radius: 16px;
+  transform-origin: center;
+  transition: transform 1.2s cubic-bezier(0.4, 0, 0.2, 1);
+  animation: subtle-zoom 15s infinite alternate;
+  border-radius: 20px;
 }
 
-/* Custom Arrows */
-.custom-arrow {
-  width: 70px; /* Kattalashtirdik */
-  height: 70px;
-  background: linear-gradient(135deg, #ffa500, #ff8c00);
-  border-radius: 50%;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  cursor: pointer;
-  transition: all 0.3s ease-in-out;
-  box-shadow: 0 6px 14px rgba(0, 0, 0, 0.3);
-  position: absolute;
-  top: 50%;
-  transform: translateY(-50%);
-  z-index: 100;
-}
-
-.custom-arrow:hover {
-  background: linear-gradient(135deg, #ff8c00, #ff4500);
-  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.4);
-}
-
-.left-arrow {
-  left: -90px; /* Kattaroq bo‘lgani uchun joyini o‘zgartirdik */
-}
-
-.right-arrow {
-  right: -90px;
-}
-
-.custom-arrow svg {
-  font-size: 30px; /* O‘q belgilarini kattalashtirdik */
-  color: white;
-}
-
-/* Responsive dizayn */
-@media (max-width: 1200px) {
+/* Large Desktop (1920px и выше) */
+@media (min-width: 1920px) {
   .carousel-container {
-    width: 100%;
+    height: 800px;
+    max-width: 1800px;
+    margin: 30px auto;
+  }
+
+  .custom-arrow {
+    width: 60px;
+    height: 60px;
+  }
+
+  .custom-arrow svg {
+    width: 24px;
+    height: 24px;
+  }
+
+  .left-arrow {
+    left: 40px;
+  }
+
+  .right-arrow {
+    right: 40px;
+  }
+}
+
+/* Desktop (1440px - 1919px) */
+@media (min-width: 1440px) and (max-width: 1919px) {
+  .carousel-container {
+    height: 700px;
+    max-width: 1400px;
+    margin: 25px auto;
+  }
+
+  .custom-arrow {
+    width: 55px;
+    height: 55px;
+  }
+
+  .custom-arrow svg {
+    width: 22px;
+    height: 22px;
+  }
+}
+
+/* Small Desktop (1280px - 1439px) */
+@media (min-width: 1280px) and (max-width: 1439px) {
+  .carousel-container {
+    height: 600px;
+    max-width: 1200px;
+    margin: 20px auto;
   }
 
   .custom-arrow {
@@ -70,22 +86,49 @@
     height: 50px;
   }
 
-  .left-arrow {
-    left: -60px;
-  }
-
-  .right-arrow {
-    right: -60px;
-  }
-
-  .carousel-image {
-    max-height: 500px;
+  .custom-arrow svg {
+    width: 20px;
+    height: 20px;
   }
 }
 
-@media (max-width: 768px) {
+/* Laptop (1024px - 1279px) */
+@media (min-width: 1024px) and (max-width: 1279px) {
+  .carousel-container {
+    height: 500px;
+    margin: 20px;
+  }
+
+  .custom-arrow {
+    width: 45px;
+    height: 45px;
+  }
+
+  .custom-arrow svg {
+    width: 18px;
+    height: 18px;
+  }
+
+  .left-arrow {
+    left: 20px;
+  }
+
+  .right-arrow {
+    right: 20px;
+  }
+}
+
+/* Tablet Landscape (768px - 1023px) */
+@media (min-width: 768px) and (max-width: 1023px) {
+  .carousel-container {
+    height: 450px;
+    margin: 15px;
+    border-radius: 15px;
+  }
+
+  .carousel-wrap,
   .carousel-image {
-    max-height: 400px;
+    border-radius: 15px;
   }
 
   .custom-arrow {
@@ -93,11 +136,197 @@
     height: 40px;
   }
 
+  .custom-arrow svg {
+    width: 16px;
+    height: 16px;
+  }
+
   .left-arrow {
-    left: -40px;
+    left: 15px;
   }
 
   .right-arrow {
-    right: -40px;
+    right: 15px;
   }
+}
+
+/* Tablet Portrait (600px - 767px) */
+@media (min-width: 600px) and (max-width: 767px) {
+  .carousel-container {
+    height: 400px;
+    margin: 12px;
+    border-radius: 12px;
+  }
+
+  .carousel-wrap,
+  .carousel-image {
+    border-radius: 12px;
+  }
+
+  .custom-arrow {
+    width: 35px;
+    height: 35px;
+  }
+
+  .custom-arrow svg {
+    width: 14px;
+    height: 14px;
+  }
+}
+
+/* Mobile Large (480px - 599px) */
+@media (min-width: 480px) and (max-width: 599px) {
+  .carousel-container {
+    height: 350px;
+    margin: 10px;
+    border-radius: 10px;
+  }
+
+  .carousel-wrap,
+  .carousel-image {
+    border-radius: 10px;
+  }
+
+  .custom-arrow {
+    width: 32px;
+    height: 32px;
+  }
+
+  .custom-arrow svg {
+    width: 13px;
+    height: 13px;
+  }
+
+  .left-arrow {
+    left: 10px;
+  }
+
+  .right-arrow {
+    right: 10px;
+  }
+}
+
+/* Mobile Medium (375px - 479px) */
+@media (min-width: 375px) and (max-width: 479px) {
+  .carousel-container {
+    height: 300px;
+    margin: 8px;
+    border-radius: 8px;
+  }
+
+  .carousel-wrap,
+  .carousel-image {
+    border-radius: 8px;
+  }
+
+  .custom-arrow {
+    width: 30px;
+    height: 30px;
+  }
+
+  .custom-arrow svg {
+    width: 12px;
+    height: 12px;
+  }
+}
+
+/* Mobile Small (320px - 374px) */
+@media (max-width: 374px) {
+  .carousel-container {
+    height: 250px;
+    margin: 6px;
+    border-radius: 6px;
+  }
+
+  .carousel-wrap,
+  .carousel-image {
+    border-radius: 6px;
+  }
+
+  .custom-arrow {
+    width: 28px;
+    height: 28px;
+  }
+
+  .custom-arrow svg {
+    width: 11px;
+    height: 11px;
+  }
+
+  .left-arrow {
+    left: 8px;
+  }
+
+  .right-arrow {
+    right: 8px;
+  }
+}
+
+/* Общие стили для точек навигации на всех устройствах */
+.ant-carousel .slick-dots {
+  bottom: 20px;
+  z-index: 2;
+}
+
+@media (max-width: 767px) {
+  .ant-carousel .slick-dots {
+    bottom: 10px;
+  }
+
+  .ant-carousel .slick-dots li button {
+    width: 20px;
+    height: 3px;
+  }
+
+  .ant-carousel .slick-dots li.slick-active button {
+    width: 35px;
+  }
+}
+
+/* Прогресс-бар для всех устройств */
+.carousel-progress {
+  height: 4px;
+}
+
+@media (max-width: 767px) {
+  .carousel-progress {
+    height: 3px;
+  }
+}
+
+/* Анимации и эффекты наведения сохраняются для всех размеров */
+.custom-arrow:hover {
+  background: rgba(255, 255, 255, 0.25);
+  transform: translateY(-50%) scale(1.1);
+}
+
+.custom-arrow:hover svg {
+  transform: scale(1.2);
+}
+
+@keyframes subtle-zoom {
+  from {
+    transform: scale(1);
+  }
+  to {
+    transform: scale(1.15);
+  }
+}
+
+/* Градиентный оверлей для всех размеров */
+.carousel-wrap::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(
+    to right,
+    rgba(0, 0, 0, 0.4) 0%,
+    rgba(0, 0, 0, 0.2) 50%,
+    rgba(0, 0, 0, 0.4) 100%
+  );
+  z-index: 1;
+  border-radius: inherit;
 }

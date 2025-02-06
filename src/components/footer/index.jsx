@@ -6,7 +6,7 @@ const Index = () => {
     <footer className="footer">
       <div className="footer-container">
         <div className="footer-logo">
-          <span>logo</span>ipsum
+          <span>Real</span>Estate
         </div>
         <div className="footer-content">
           <div className="footer-section">
