@@ -1,0 +1,98 @@
+/* Konteynerni tartibga solish */
+.listings-container {
+  display: grid;
+  grid-template-columns: repeat(
+    auto-fill,
+    minmax(300px, 1fr)
+  ); /* Flexibles grid */
+  gap: 20px; /* Kartalar orasidagi bo‘shliq */
+  padding: 44px 40px;
+}
+
+/* Kartalarning uslubi */
+.listing-card {
+  background: #fff;
+  border-radius: 10px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  overflow: hidden;
+  transition: transform 0.3s ease; /* Hover effekt */
+  width: 264px;
+  margin: 0 auto;
+  cursor: pointer;
+}
+
+.listing-card:hover {
+  transform: translateY(-10px); /* Hoverda biroz ko‘tarilish */
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1), 0 8px 24px rgba(0, 0, 0, 0.2);
+}
+
+/* Rasmga margin qo‘shish */
+.listing-image {
+  width: 100%;
+  height: 200px;
+  object-fit: cover; /* Rasmni kesib olish */
+  padding: 8px;
+  margin-bottom: 15px; /* Rasmning pastki qismida bo‘shliq */
+  border-radius: 15px;
+}
+
+.listing-info {
+  padding: 15px;
+  font-family: Arial, sans-serif;
+}
+
+.listing-info h3 {
+  font-size: 18px;
+  font-weight: bold;
+  margin-bottom: 10px;
+}
+
+.price {
+  font-size: 16px;
+  color: #123763; /* Narxning rangini o‘zgartirish */
+}
+
+.location {
+  display: flex;
+  align-items: center;
+  margin-top: 10px;
+  font-size: 14px;
+  color: #888;
+}
+
+.location span {
+  margin-left: 5px;
+}
+
+.rating {
+  margin-top: 10px;
+}
+
+.rating svg {
+  margin-right: 2px;
+}
+
+.listing-info .rating {
+  font-size: 18px;
+}
+
+/* Yulduzcha rangini o‘zgartirish */
+.rating svg {
+  color: #ffd700; /* Yulduzcha uchun oltin rang */
+}
+
+.price {
+  margin-top: 12px;
+  color: #123763;
+  font-size: 20px;
+  font-weight: 600;
+}
+.star-icon {
+  color: #ffc000;
+}
+.location-icon {
+  color: #27ad77;
+}
+.listing-info {
+  color: #123763;
+}

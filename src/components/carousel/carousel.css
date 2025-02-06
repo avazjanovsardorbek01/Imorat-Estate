@@ -1,0 +1,103 @@
+/* Carousel container */
+.carousel-container {
+  width: 95%; /* Kattalashtirdik */
+  max-width: 1600px; /* Maksimal kengligi */
+  margin: 0 auto;
+  position: relative;
+  padding: 40px 0;
+}
+
+/* Carousel image */
+.carousel-wrap {
+  border-radius: 16px;
+  overflow: hidden;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.carousel-image {
+  width: 100%;
+  max-height: 600px; /* Kattaroq bo‘lishi uchun */
+  object-fit: cover;
+  border-radius: 16px;
+}
+
+/* Custom Arrows */
+.custom-arrow {
+  width: 70px; /* Kattalashtirdik */
+  height: 70px;
+  background: linear-gradient(135deg, #ffa500, #ff8c00);
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+  transition: all 0.3s ease-in-out;
+  box-shadow: 0 6px 14px rgba(0, 0, 0, 0.3);
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  z-index: 100;
+}
+
+.custom-arrow:hover {
+  background: linear-gradient(135deg, #ff8c00, #ff4500);
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.4);
+}
+
+.left-arrow {
+  left: -90px; /* Kattaroq bo‘lgani uchun joyini o‘zgartirdik */
+}
+
+.right-arrow {
+  right: -90px;
+}
+
+.custom-arrow svg {
+  font-size: 30px; /* O‘q belgilarini kattalashtirdik */
+  color: white;
+}
+
+/* Responsive dizayn */
+@media (max-width: 1200px) {
+  .carousel-container {
+    width: 100%;
+  }
+
+  .custom-arrow {
+    width: 50px;
+    height: 50px;
+  }
+
+  .left-arrow {
+    left: -60px;
+  }
+
+  .right-arrow {
+    right: -60px;
+  }
+
+  .carousel-image {
+    max-height: 500px;
+  }
+}
+
+@media (max-width: 768px) {
+  .carousel-image {
+    max-height: 400px;
+  }
+
+  .custom-arrow {
+    width: 40px;
+    height: 40px;
+  }
+
+  .left-arrow {
+    left: -40px;
+  }
+
+  .right-arrow {
+    right: -40px;
+  }
+}
