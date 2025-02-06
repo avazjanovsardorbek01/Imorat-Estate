@@ -6,10 +6,10 @@ const Contact = () => {
     <>
       <section className="hero-section">
         <div className="hero-content">
-          <h1>Contact Us</h1>
+          <h1>Свяжитесь с нами</h1>
           <p>
-            We're here to help you find your dream home. Get in touch with our
-            expert team today.
+            Мы готовы помочь вам найти ваш дом мечты. Свяжитесь с нашей командой
+            экспертов уже сегодня.
           </p>
         </div>
       </section>
@@ -18,51 +18,51 @@ const Contact = () => {
         <div className="info-cards">
           <div className="info-card">
             <i className="fas fa-phone"></i>
-            <h3>Call Us</h3>
+            <h3>Позвоните нам</h3>
             <p>+1 (234) 567-8900</p>
-            <p>Mon-Fri 9am-6pm</p>
+            <p>Пн-Пт 9:00-18:00</p>
           </div>
           <div className="info-card">
             <i className="fas fa-envelope"></i>
-            <h3>Email Us</h3>
+            <h3>Напишите нам</h3>
             <p>info@realestate.com</p>
-            <p>24/7 Online Support</p>
+            <p>Поддержка 24/7</p>
           </div>
           <div className="info-card">
             <i className="fas fa-map-marker-alt"></i>
-            <h3>Visit Us</h3>
+            <h3>Посетите нас</h3>
             <p>123 Real Estate Ave</p>
-            <p>New York, NY 10001</p>
+            <p>Нью-Йорк, NY 10001</p>
           </div>
           <div className="info-card">
             <i className="fas fa-clock"></i>
-            <h3>Working Hours</h3>
-            <p>Monday - Friday</p>
-            <p>9:00 AM - 6:00 PM</p>
+            <h3>Часы работы</h3>
+            <p>Понедельник - Пятница</p>
+            <p>9:00 - 18:00</p>
           </div>
         </div>
 
         <div className="contact-form">
-          <h2>Send us a Message</h2>
+          <h2>Отправьте нам сообщение</h2>
           <form>
             <div className="form-group">
-              <label>Full Name</label>
+              <label>Полное имя</label>
               <input type="text" required />
             </div>
             <div className="form-group">
-              <label>Email</label>
+              <label>Электронная почта</label>
               <input type="email" required />
             </div>
             <div className="form-group">
-              <label>Phone</label>
+              <label>Телефон</label>
               <input type="tel" required />
             </div>
             <div className="form-group">
-              <label>Message</label>
+              <label>Сообщение</label>
               <textarea rows="5" required></textarea>
             </div>
             <button type="submit" className="submit-btn">
-              Send Message
+              Отправить сообщение
             </button>
           </form>
         </div>

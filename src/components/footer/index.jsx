@@ -6,34 +6,34 @@ const Index = () => {
     <footer className="footer">
       <div className="footer-container">
         <div className="footer-logo">
-          <span>Real</span>Estate
+          <span>Недвижимость</span>
         </div>
         <div className="footer-content">
           <div className="footer-section">
-            <h3>Make Your Home More Modern</h3>
+            <h3>Сделайте ваш дом более современным</h3>
             <p>
               Amet minim mollit non deserunt ullamco est sit aliqua dolor do
-              amet sint. Velit officia consequat duis enim
+              amet sint. Velit officia consequat duis enim.
             </p>
           </div>
           <div className="footer-section">
-            <h3>Our Services</h3>
+            <h3>Наши услуги</h3>
             <ul>
-              <li>Home Rent</li>
-              <li>Appartment Sell</li>
-              <li>Villa Rent</li>
+              <li>Аренда домов</li>
+              <li>Продажа квартир</li>
+              <li>Аренда вилл</li>
             </ul>
           </div>
           <div className="footer-section">
-            <h3>Support</h3>
+            <h3>Поддержка</h3>
             <ul>
-              <li>Customer Services</li>
-              <li>Email Us</li>
-              <li>Privacy Policy</li>
+              <li>Обслуживание клиентов</li>
+              <li>Напишите нам</li>
+              <li>Политика конфиденциальности</li>
             </ul>
           </div>
           <div className="footer-section">
-            <h3>Social Media</h3>
+            <h3>Социальные сети</h3>
             <ul>
               <li>Facebook</li>
               <li>Instagram</li>
@@ -44,12 +44,12 @@ const Index = () => {
       </div>
       <div className="footer-bottom">
         <ul className="footer-links">
-          <li>Home</li>
-          <li>Explore</li>
-          <li>Agency</li>
-          <li>Blog</li>
-          <li>About</li>
-          <li>Contact</li>
+          <li>Главная</li>
+          <li>Исследовать</li>
+          <li>Агентство</li>
+          <li>Блог</li>
+          <li>О нас</li>
+          <li>Контакты</li>
         </ul>
         <p>Copyright Tanah Air Studio</p>
       </div>
