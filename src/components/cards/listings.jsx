@@ -8,20 +8,20 @@ const Listings = ({ currentPage }) => {
   const [photos, setPhotos] = useState([]);
   const [totalPages, setTotalPages] = useState(1);
 
-  useEffect(() => {
-    // Пример запроса с пагинацией
-    axios
-      .get(`https://picsum.photos/v2/list?page=${currentPage}&limit=10`)
-      .then((response) => {
-        console.log(response.data); // Логируем ответ, чтобы видеть данные
-        setPhotos(response.data); // Сохраняем данные с изображениями
-        // Здесь нужно обновить totalPages, если API возвращает это значение
-        setTotalPages(20); // Примерное количество страниц
-      })
-      .catch((error) => {
-        console.error("Ошибка при получении фото:", error);
-      });
-  }, [currentPage]);
+  // useEffect(() => {
+  //   // Пример запроса с пагинацией
+  //   axios
+  //     .get(`https://picsum.photos/v2/list?page=${currentPage}&limit=10`)
+  //     .then((response) => {
+  //       console.log(response.data); // Логируем ответ, чтобы видеть данные
+  //       setPhotos(response.data); // Сохраняем данные с изображениями
+  //       // Здесь нужно обновить totalPages, если API возвращает это значение
+  //       setTotalPages(20); // Примерное количество страниц
+  //     })
+  //     .catch((error) => {
+  //       console.error("Ошибка при получении фото:", error);
+  //     });
+  // }, [currentPage]);
 
   const displayedPhotos = photos.slice(0, 4);
 

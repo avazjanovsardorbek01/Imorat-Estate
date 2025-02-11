@@ -2,7 +2,7 @@ import React, { useState, useEffect } from "react";
 import "./header.css";
 import { NavLink, useNavigate } from "react-router-dom";
 import routes from "../../router/routes";
-
+import Logo from "../../assets/Images/logo.svg";
 const Index = () => {
   const navigate = useNavigate();
   const [isOpen, setIsOpen] = useState(false);
@@ -21,7 +21,7 @@ const Index = () => {
     <>
       <nav className={`navbar ${scrolled ? "scrolled" : ""}`}>
         <div className="logo">
-          <span>Real</span>Estate
+          <img src={Logo} alt="Logo" />
         </div>
 
         {/* Desktop Menu */}

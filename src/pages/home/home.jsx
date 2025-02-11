@@ -8,19 +8,9 @@ import Listings from "../../components/cards/listings";
 import SearchHome from "../../assets/Images/SearchHome.jpg";
 import Credit from "../../assets/Images/Credit.jpeg";
 import FamilyHouse from "../../assets/Images/happy-family-house.avif";
+import ApartmentList from "../../components/products/apartmentlist";
 
 const Index = () => {
-  useEffect(() => {
-    axios
-      .get("https://jsonplaceholder.typicode.com/photos")
-      .then((response) => {
-        console.log(response);
-      })
-      .catch((error) => {
-        console.error("Error fetching data:", error);
-      });
-  }, []);
-
   return (
     <div className="container">
       <section className="hero">
@@ -79,6 +69,7 @@ const Index = () => {
         </div>
       </section>
       <section className="Listings">
+        <ApartmentList />
         <div className="listings-head">
           <h3>Последние объявления</h3>
           <button className="view-btn">Посмотреть все</button>

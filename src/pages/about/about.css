@@ -1,0 +1,358 @@
+Основные переменные :root {
+  --primary: #046a38;
+  --primary-light: #058548;
+  --primary-dark: #035c31;
+  --text-dark: #1a1a1a;
+  --text-light: #666666;
+  --white: #ffffff;
+  --bg-light: #f8f9fa;
+  --transition: all 0.3s ease;
+}
+
+/* Общие стили */
+.about-page {
+  font-family: "Montserrat", sans-serif;
+  color: var(--text-dark);
+  overflow-x: hidden;
+}
+
+/* Hero Section */
+.about-hero-section {
+  height: 100vh;
+  background-size: cover;
+  background-position: center;
+  background-attachment: fixed;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  position: relative;
+}
+
+.about-hero-content {
+  color: var(--white);
+  max-width: 800px;
+  padding: 0 20px;
+  z-index: 1;
+}
+
+.hero-content h1 {
+  font-size: clamp(2.5rem, 5vw, 4rem);
+  margin-bottom: 20px;
+  font-weight: 700;
+}
+
+.hero-content p {
+  font-size: clamp(1.1rem, 2vw, 1.5rem);
+  margin-bottom: 30px;
+  opacity: 0.9;
+}
+
+/* Stats Section */
+.stats-section {
+  padding: 100px 0;
+  background: var(--bg-light);
+}
+
+.stats-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 20px;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 30px;
+}
+
+.stat-card {
+  background: var(--white);
+  padding: 40px 20px;
+  text-align: center;
+  border-radius: 15px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+  transition: var(--transition);
+}
+
+.stat-card:hover {
+  transform: translateY(-10px);
+}
+
+.stat-number {
+  font-size: 3.5rem;
+  font-weight: 700;
+  color: var(--primary);
+  margin-bottom: 10px;
+  display: block;
+}
+
+/* Mission Section */
+.mission-section {
+  padding: 100px 0;
+}
+
+.mission-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 20px;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 50px;
+  align-items: center;
+}
+
+.mission-text h2 {
+  font-size: 2.5rem;
+  margin-bottom: 30px;
+  color: var(--primary);
+}
+
+.mission-text p {
+  font-size: 1.1rem;
+  line-height: 1.8;
+  color: var(--text-light);
+}
+
+.mission-image img {
+  width: 100%;
+  height: 400px;
+  object-fit: cover;
+  border-radius: 15px;
+  box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
+}
+
+/* Why Choose Us Section */
+.why-us-section {
+  padding: 100px 0;
+  background: var(--bg-light);
+}
+
+.why-us-section h2 {
+  text-align: center;
+  font-size: 2.5rem;
+  margin-bottom: 50px;
+  color: var(--primary);
+}
+
+.advantages-grid {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 20px;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 30px;
+}
+
+.advantage-card {
+  background: var(--white);
+  padding: 40px 30px;
+  text-align: center;
+  border-radius: 15px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+}
+
+.advantage-icon {
+  font-size: 3rem;
+  margin-bottom: 20px;
+}
+
+.advantage-card h3 {
+  margin-bottom: 15px;
+  color: var(--primary);
+}
+
+/* Team Section */
+.team-section {
+  padding: 100px 0;
+}
+
+.team-section h2 {
+  text-align: center;
+  font-size: 2.5rem;
+  margin-bottom: 50px;
+  color: var(--primary);
+}
+
+.team-grid {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 20px;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 30px;
+}
+
+.team-card {
+  text-align: center;
+}
+
+.team-image {
+  width: 100%;
+  height: 300px;
+  margin-bottom: 20px;
+  border-radius: 15px;
+  overflow: hidden;
+}
+
+.team-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: var(--transition);
+}
+
+.team-card:hover .team-image img {
+  transform: scale(1.1);
+}
+
+.team-card h3 {
+  margin-bottom: 10px;
+  color: var(--primary);
+}
+
+/* Testimonials Section */
+.testimonials-section {
+  padding: 100px 0;
+  background: var(--bg-light);
+}
+
+.testimonials-section h2 {
+  text-align: center;
+  font-size: 2.5rem;
+  margin-bottom: 50px;
+  color: var(--primary);
+}
+
+.testimonials-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 20px;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 30px;
+}
+
+.testimonial-card {
+  background: var(--white);
+  padding: 30px;
+  border-radius: 15px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+  text-align: center;
+}
+
+.testimonial-image {
+  width: 80px;
+  height: 80px;
+  margin: 0 auto 20px;
+  border-radius: 50%;
+  overflow: hidden;
+}
+
+.testimonial-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.testimonial-text {
+  font-style: italic;
+  margin-bottom: 20px;
+  color: var(--text-light);
+}
+
+/* CTA Section */
+.cta-section {
+  padding: 100px 0;
+  background: linear-gradient(rgba(4, 106, 56, 0.9), rgba(4, 106, 56, 0.9)),
+    url("https://images.unsplash.com/photo-1560520653-9e0e4c89eb11")
+      center/cover;
+  text-align: center;
+  color: var(--white);
+}
+
+.cta-content {
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 0 20px;
+}
+
+.cta-content h2 {
+  font-size: 2.5rem;
+  margin-bottom: 30px;
+}
+
+.cta-button {
+  padding: 15px 40px;
+  font-size: 1.1rem;
+  background: var(--white);
+  color: var(--primary);
+  border: none;
+  border-radius: 50px;
+  cursor: pointer;
+  transition: var(--transition);
+  box-shadow: 0 4px 15px rgba(255, 255, 255, 0.2);
+}
+
+.cta-button:hover {
+  background: var(--primary-light);
+  color: var(--white);
+}
+
+/* Медиа-запросы */
+@media (max-width: 1024px) {
+  .mission-container {
+    grid-template-columns: 1fr;
+  }
+
+  .mission-image {
+    order: -1;
+  }
+}
+
+@media (max-width: 768px) {
+  .hero-section {
+    height: 70vh;
+  }
+
+  .stats-container,
+  .advantages-grid,
+  .team-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .testimonials-container {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 480px) {
+  .stats-container,
+  .advantages-grid,
+  .team-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .hero-content h1 {
+    font-size: 2rem;
+  }
+
+  .stat-card,
+  .advantage-card {
+    padding: 30px 20px;
+  }
+}
+
+/* Анимации */
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Плавная прокрутка */
+html {
+  scroll-behavior: smooth;
+}
