@@ -80,7 +80,7 @@ export default function Apartments() {
             onClick={() => navigate(`/show/${item.id}`)} // TO'G'RI YO'NALISH
           >
             <img
-              src={`http://127.0.0.1${item.image}`}
+              src={`http://127.0.0.1${item.image[0]}`}
               alt="Фото квартиры"
               className="apartment-image"
             />
