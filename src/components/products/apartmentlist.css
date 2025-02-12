@@ -1,30 +1,47 @@
 .apartment-list {
   max-width: 1200px;
-  margin: 0 auto;
+  margin: 20px auto;
   padding: 20px;
+  font-family: Arial, sans-serif;
 }
 
-.apartment-list h2 {
-  text-align: center;
-  margin-bottom: 20px;
+.items-per-page {
+  margin-bottom: 15px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.items-per-page label {
+  font-size: 16px;
+  font-weight: 600;
+}
+
+.items-per-page select {
+  padding: 5px 10px;
+  font-size: 14px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  cursor: pointer;
 }
 
 .apartment-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
   gap: 20px;
 }
 
-.apartment-card {
+.property-item {
   border: 1px solid #ddd;
-  border-radius: 10px;
+  border-radius: 8px;
   overflow: hidden;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-  transition: transform 0.2s;
+  background: #fff;
+  transition: transform 0.2s ease-in-out, box-shadow 0.2s ease-in-out;
 }
 
-.apartment-card:hover {
-  transform: scale(1.05);
+.property-item:hover {
+  transform: scale(1.02);
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
 }
 
 .apartment-image {
@@ -34,21 +51,35 @@
 }
 
 .apartment-info {
-  padding: 15px;
+  padding: 10px;
+  text-align: left;
 }
 
-.apartment-info h3 {
-  margin: 0 0 10px;
-  font-size: 18px;
+.pagination {
+  display: flex;
+  justify-content: center;
+  list-style: none;
+  padding: 10px 0;
 }
 
-.apartment-info p {
-  margin: 5px 0;
-  font-size: 14px;
+.pagination .page-item {
+  margin: 0 5px;
 }
 
-.error {
-  color: red;
-  text-align: center;
-  font-size: 18px;
+.pagination .page-link {
+  padding: 8px 12px;
+  text-decoration: none;
+  color: #333;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  transition: background 0.2s;
+}
+
+.pagination .page-link:hover {
+  background: #f4f4f4;
+}
+
+.pagination .active .page-link {
+  background: #007bff;
+  color: #fff;
 }
