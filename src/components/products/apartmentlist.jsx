@@ -1,20 +1,19 @@
 import { useEffect, useState } from "react";
+import { useNavigate } from "react-router-dom";
+import "./apartmentlist.css";
 
 export default function Apartments() {
   const [apartments, setApartments] = useState([]);
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState(null);
-  // Sahifa raqamini 1 dan boshlaymiz
   const [page, setPage] = useState(1);
-  // Har bir sahifada nechta element ko'rsatilishini belgilaymiz
   const perPage = 12;
+  const navigate = useNavigate();
 
   useEffect(() => {
     async function fetchApartments() {
       setLoading(true);
       try {
-        // Agar backendda barcha natijalarni bir martada olish mumkin bo'lsa,
-        // limitni juda katta qilib yuborish mumkin (masalan, 1000)
         const response = await fetch("http://127.0.0.1/api/server/virtuoso", {
           method: "POST",
           headers: {
@@ -26,8 +25,8 @@ export default function Apartments() {
               price_min: 50000,
               price_max: 100000,
             },
-            limit: 1000, // barcha natijalarni olish uchun
-            page: 0, // barcha maʼlumotlar uchun offset 0
+            limit: 1000,
+            page: 0,
           }),
         });
 
@@ -38,12 +37,11 @@ export default function Apartments() {
         const result = await response.json();
         console.log("Server javobi:", result);
 
-        if (Array.isArray(result?.data) && Array.isArray(result?.images)) {
+        if (Array.isArray(result?.data)) {
           const mergedApartments = result.data.map((apartment, index) => ({
             ...apartment,
-            image: result.images[index] || "/no-image.jpg",
+            image: result.images?.[index] || "/no-image.jpg",
           }));
-          // Qayta so'rov natijasidagi barcha maʼlumotlarni saqlaymiz
           setApartments(mergedApartments);
         } else {
           throw new Error("Serverdan noto‘g‘ri formatdagi maʼlumotlar keldi");
@@ -59,16 +57,11 @@ export default function Apartments() {
     fetchApartments();
   }, []);
 
-  // Paginatsiya uchun: hozirgi sahifadagi 12 ta maʼlumotni ajratib olaylik
-  let currentApartments = apartments.slice(
+  const currentApartments = apartments.slice(
     (page - 1) * perPage,
     page * perPage
   );
-
-  // Umumiy nechta sahifa borligini hisoblaymiz
   const totalPages = Math.ceil(apartments.length / perPage);
-  // Agar maʼlumotlar 120 tadan oshsa, maksimal 10 ta button ko‘rsatamiz
-  const pagesToShow = totalPages > 20 ? 20 : totalPages;
 
   return (
     <div className="apartment-list">
@@ -80,10 +73,14 @@ export default function Apartments() {
       {loading && <p>Загрузка...</p>}
 
       <div className="apartment-grid">
-        {currentApartments.map((item, index) => (
-          <div key={index} className="property-item">
+        {currentApartments.map((item) => (
+          <div
+            key={item.id}
+            className="property-item"
+            onClick={() => navigate(`/show/${item.id}`)} // TO'G'RI YO'NALISH
+          >
             <img
-              src={`http://127.0.0.1${item.image[0]}`}
+              src={`http://127.0.0.1${item.image}`}
               alt="Фото квартиры"
               className="apartment-image"
             />
@@ -111,9 +108,8 @@ export default function Apartments() {
         ))}
       </div>
 
-      {/* Paginatsiya buttonlari */}
       <div className="pagination">
-        {Array.from({ length: pagesToShow }, (_, i) => (
+        {Array.from({ length: totalPages }, (_, i) => (
           <button
             key={i + 1}
             onClick={() => setPage(i + 1)}
@@ -123,69 +119,6 @@ export default function Apartments() {
           </button>
         ))}
       </div>
-
-      <style jsx>{`
-        .apartment-list {
-          max-width: 1200px;
-          margin: 0 auto;
-          padding: 20px;
-        }
-        .apartment-grid {
-          display: grid;
-          grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
-          gap: 20px;
-        }
-        .property-item {
-          position: relative;
-          margin: 20px !important;
-          transition: 400ms ease;
-          border-radius: 10px !important;
-          overflow: hidden !important;
-          border: 1px solid lightgrey !important;
-        }
-        .property-item:hover {
-          transform: translateY(-5px);
-          box-shadow: 0 0 10px 2px lightgrey;
-          cursor: pointer;
-        }
-        .apartment-image {
-          width: 100%;
-          height: 200px;
-          object-fit: cover;
-        }
-        .apartment-info {
-          padding: 15px;
-        }
-        .apartment-info h3 {
-          margin: 0 0 10px;
-          font-size: 18px;
-        }
-        .apartment-info p {
-          margin: 5px 0;
-          font-size: 14px;
-        }
-        .error {
-          color: red;
-          text-align: center;
-          font-size: 18px;
-        }
-        .pagination {
-          margin-top: 20px;
-          text-align: center;
-        }
-        .pagination button {
-          margin: 0 5px;
-          padding: 8px 12px;
-          border: none;
-          background-color: #f0f0f0;
-          cursor: pointer;
-          border-radius: 4px;
-        }
-        .pagination button.active {
-          background-color: #0070f3;
-          color: white;
-        }
-      `}</style>
     </div>
   );
 }
