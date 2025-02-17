@@ -11,13 +11,7 @@ const CarouselContainer = () => {
 
   return (
     <div className="carousel-container">
-      <Carousel
-        autoplay
-        dots={true}
-        // prevArrow={<LeftOutlined className="custom-arrow " />}
-        // nextArrow={<RightOutlined className="custom-arrow " />}
-        beforeChange={() => setProgress(0)}
-      >
+      <Carousel autoplay dots={true} beforeChange={() => setProgress(0)}>
         <div className="carousel-wrap">
           <img src={HeroOne} alt="Hero One" className="carousel-image" />
         </div>

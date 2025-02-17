@@ -20,7 +20,34 @@
   height: auto;
   width: 400px;
   display: flex;
-  margin-left: 320px;
+  margin-left: 270px;
+}
+
+/* Адаптация для экранов меньших размеров */
+@media (max-width: 1200px) {
+  .error {
+    width: 350px;
+    margin-left: 250px;
+    margin: 0 auto;
+  }
+}
+
+/* Адаптация для экранов средней ширины */
+@media (max-width: 768px) {
+  .error {
+    width: 300px;
+    margin-left: 250px;
+    margin: 0 auto;
+  }
+}
+
+/* Адаптация для мобильных экранов */
+@media (max-width: 480px) {
+  .error {
+    width: 100%; /* Ширина 100% для мобильных устройств */
+    margin-left: 0; /* Убираем отступ слева */
+    justify-content: center; /* Центрируем элемент по горизонтали */
+  }
 }
 
 /* Форма поиска с анимацией */

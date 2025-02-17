@@ -41,7 +41,7 @@ img {
 /* Hero Section */
 .hero {
   min-height: 80vh;
-  margin-bottom: 60px;
+  margin-bottom: -250px;
 }
 
 @media (max-width: 768px) {

@@ -1,14 +1,13 @@
 /* Основные стили */
 .carousel-container {
   position: relative;
-  width: 1200px;
+  width: calc(100% - 40px);
   height: 500px;
   overflow: hidden;
   margin: 20px auto; /* Центровка по горизонтали */
   padding-top: 60px;
   border-radius: 20px;
   display: block;
-  /* Для центровки на всех устройствах */
   max-width: 1200px; /* Максимальная ширина */
 }
 
@@ -140,55 +139,11 @@
   transform: scale(1.2);
 }
 
-/* Медиа запросы */
-
-/* Large Desktop (1920px и выше) */
-@media (min-width: 1920px) {
+/* Медиа-запросы для адаптации на разные экраны */
+@media (max-width: 768px) {
   .carousel-container {
-    height: 600px;
-    margin: 30px auto;
-  }
-}
-
-/* Desktop (1440px - 1919px) */
-@media (min-width: 1440px) and (max-width: 1919px) {
-  .carousel-container {
-    height: 550px;
-    margin: 25px auto;
-  }
-}
-
-/* Small Desktop (1280px - 1439px) */
-@media (min-width: 1280px) and (max-width: 1439px) {
-  .carousel-container {
-    height: 500px;
-    margin: 20px auto;
-  }
-}
-
-/* Laptop (1024px - 1279px) */
-@media (min-width: 1024px) and (max-width: 1279px) {
-  .carousel-container {
-    height: 400px;
-    margin: 20px auto;
-  }
-
-  .custom-arrow {
-    width: 45px;
-    height: 45px;
-  }
-
-  .custom-arrow svg {
-    font-size: 18px;
-  }
-}
-
-/* Tablet Landscape (768px - 1023px) */
-@media (min-width: 768px) and (max-width: 1023px) {
-  .carousel-container {
-    height: 350px;
-    margin: 15px auto;
-    border-radius: 15px;
+    height: 300px; /* Уменьшаем высоту для планшетов */
+    padding-top: 40px;
   }
 
   .custom-arrow {
@@ -197,73 +152,15 @@
   }
 
   .custom-arrow svg {
-    font-size: 16px;
-  }
-}
-
-/* Tablet Portrait (600px - 767px) */
-@media (min-width: 600px) and (max-width: 767px) {
-  .carousel-container {
-    height: 300px;
-    margin: 12px auto;
-    border-radius: 12px;
+    font-size: 18px;
   }
 
-  .custom-arrow {
-    width: 35px;
-    height: 35px;
+  .left-arrow {
+    left: 15px;
   }
 
-  .custom-arrow svg {
-    font-size: 14px;
-  }
-
-  .ant-carousel .slick-dots li button {
-    width: 25px;
-    height: 3px;
-  }
-
-  .ant-carousel .slick-dots li.slick-active button {
-    width: 40px;
-  }
-}
-/* Mobile Large (480px - 599px) */
-@media (min-width: 480px) and (max-width: 599px) {
-  .carousel-container {
-    height: 280px;
-    margin: 10px auto;
-    border-radius: 10px;
-  }
-
-  .custom-arrow {
-    width: 32px;
-    height: 32px;
-  }
-
-  .custom-arrow svg {
-    font-size: 13px;
-  }
-}
-
-/* Mobile Medium (375px - 479px) */
-@media (min-width: 375px) and (max-width: 479px) {
-  .carousel-container {
-    height: 250px;
-    margin: 8px auto;
-    border-radius: 8px;
-  }
-
-  .custom-arrow {
-    width: 30px;
-    height: 30px;
-  }
-
-  .custom-arrow svg {
-    font-size: 12px;
-  }
-
-  .ant-carousel .slick-dots {
-    bottom: 10px;
+  .right-arrow {
+    right: 15px;
   }
 
   .ant-carousel .slick-dots li button {
@@ -272,33 +169,39 @@
   }
 
   .ant-carousel .slick-dots li.slick-active button {
-    width: 35px;
+    width: 30px;
   }
 }
 
-/* Mobile Small (320px - 374px) */
-@media (max-width: 374px) {
+@media (max-width: 480px) {
   .carousel-container {
-    height: 200px;
-    margin: 6px auto;
-    border-radius: 6px;
+    height: 200px; /* Уменьшаем высоту для мобильных устройств */
+    padding-top: 20px;
   }
 
   .custom-arrow {
-    width: 28px;
-    height: 28px;
+    width: 30px;
+    height: 30px;
   }
 
   .custom-arrow svg {
-    font-size: 11px;
+    font-size: 16px;
+  }
+
+  .left-arrow {
+    left: 10px;
+  }
+
+  .right-arrow {
+    right: 10px;
   }
 
   .ant-carousel .slick-dots li button {
-    width: 18px;
+    width: 15px;
     height: 2px;
   }
 
   .ant-carousel .slick-dots li.slick-active button {
-    width: 30px;
+    width: 20px;
   }
 }
