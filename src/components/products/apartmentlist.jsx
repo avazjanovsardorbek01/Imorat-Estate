@@ -100,8 +100,6 @@ export default function Apartments() {
 
   return (
     <div className="apartment-list">
-      <h1>Список квартир</h1>
-
       {/* Filter Form */}
       <form onSubmit={handleSubmit} className="form-search">
         <select

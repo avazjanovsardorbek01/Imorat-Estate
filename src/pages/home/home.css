@@ -40,13 +40,13 @@ img {
 
 /* Hero Section */
 .hero {
-  min-height: 80vh;
-  margin-bottom: -250px;
+  min-height: 50vh;
+  margin-bottom: -200px;
 }
 
 @media (max-width: 768px) {
   .hero {
-    min-height: 50vh;
+    min-height: 35vh;
     margin-bottom: -200px;
   }
 }
@@ -713,7 +713,7 @@ button:hover {
   }
 
   .hero {
-    min-height: 60vh;
+    min-height: 45vh;
   }
 
   .advantages {
