@@ -10,6 +10,7 @@
 }
 
 .apartment-list {
+  margin-top: 150px;
   font-family: "Inter", sans-serif;
   padding: 20px;
   background-color: var(--surface);

@@ -3,7 +3,7 @@ import { Carousel } from "antd";
 import { LeftOutlined, RightOutlined } from "@ant-design/icons";
 import HeroOne from "../../assets/Images/HeroOne.jpg";
 import HeroTwo from "../../assets/Images/HeroTwo.jpg";
-import HeroThree from "../../assets/Images/HeroThree.png";
+import HeroThree from "../../assets/Images/HeroFour.jpg";
 import "./carousel.css";
 
 const CarouselContainer = () => {
