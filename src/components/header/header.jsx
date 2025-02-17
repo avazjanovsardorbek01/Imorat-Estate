@@ -1,12 +1,14 @@
 import React, { useState, useEffect } from "react";
 import "./header.css";
-import { NavLink, useNavigate } from "react-router-dom";
-import routes from "../../router/routes";
+import { NavLink } from "react-router-dom";
+import { motion } from "framer-motion";
 import Logo from "../../assets/Images/logo.svg";
-const Index = () => {
-  const navigate = useNavigate();
+import routes from "../../router/routes"; // Импортируем routes
+
+const Header = () => {
   const [isOpen, setIsOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
+  const [isDarkMode, setIsDarkMode] = useState(false);
 
   useEffect(() => {
     const handleScroll = () => {
@@ -17,67 +19,83 @@ const Index = () => {
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
+  const toggleTheme = () => {
+    setIsDarkMode(!isDarkMode);
+    document.body.classList.toggle("dark-mode");
+  };
+
   return (
     <>
       <nav className={`navbar ${scrolled ? "scrolled" : ""}`}>
-        <div className="logo">
-          <img src={Logo} alt="Logo" />
-        </div>
-
-        {/* Desktop Menu */}
-        <ul className="nav-links">
-          {routes.map((item, index) => (
-            <li key={index}>
-              <NavLink
-                className={({ isActive }) =>
-                  isActive ? `${item.active} active` : item.active
-                }
-                to={item.path}
-              >
-                {item.content}
-              </NavLink>
-            </li>
-          ))}
-        </ul>
-
-        <div className="nav-buttons">
-          <div className="profile">
-            <span className="notification">2</span>
+        <div className="nav-container">
+          <div className="logo">
+            <img src={Logo} alt="Logo" />
           </div>
-          <button className="add-listing">
-            <span>Добавить список</span>
-          </button>
-          <div
-            className={`burger ${isOpen ? "active" : ""}`}
-            onClick={() => setIsOpen(!isOpen)}
-          >
-            <span></span>
-            <span></span>
-            <span></span>
+
+          <div className="nav-center">
+            <ul className="nav-links">
+              {routes.map(
+                (
+                  link,
+                  index // Используем массив routes
+                ) => (
+                  <li key={index} className="nav-item">
+                    <NavLink
+                      to={link.path}
+                      className={({ isActive }) =>
+                        isActive ? "nav-link active" : "nav-link"
+                      }
+                    >
+                      {link.content}
+                    </NavLink>
+                  </li>
+                )
+              )}
+            </ul>
+          </div>
+
+          <div className="nav-right">
+            <div className="theme-switch" onClick={toggleTheme}>
+              <div className={`switch-track ${isDarkMode ? "dark-mode" : ""}`}>
+                <div className="switch-thumb" />
+              </div>
+            </div>
+
+            <div
+              className={`burger ${isOpen ? "active" : ""}`}
+              onClick={() => setIsOpen(!isOpen)}
+            >
+              <span></span>
+              <span></span>
+              <span></span>
+            </div>
           </div>
         </div>
       </nav>
 
-      {/* Mobile Menu */}
       <div className={`mobile-menu ${isOpen ? "active" : ""}`}>
         <div className="mobile-menu-content">
-          {routes.map((item, index) => (
-            <NavLink
-              key={index}
-              className={({ isActive }) =>
-                isActive ? `mobile-link active` : "mobile-link"
-              }
-              to={item.path}
-              onClick={() => setIsOpen(false)}
-            >
-              {item.content}
-            </NavLink>
-          ))}
-          <button className="mobile-add-listing">Добавить список</button>
+          {routes.map(
+            (
+              link,
+              index // Используем массив routes и здесь
+            ) => (
+              <NavLink
+                key={index}
+                to={link.path}
+                className={({ isActive }) =>
+                  `mobile-link ${isActive ? "active" : ""}`
+                }
+                onClick={() => setIsOpen(false)}
+              >
+                {link.content}
+              </NavLink>
+            )
+          )}
         </div>
       </div>
     </>
   );
 };
 
-export default Index;
+export default Header;

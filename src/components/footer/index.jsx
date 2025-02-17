@@ -1,4 +1,6 @@
 import React from "react";
+import { NavLink } from "react-router-dom";
+import routes from "../../router/routes"; // Импортируем routes
 import "./footer.css";
 
 const Index = () => {
@@ -44,14 +46,20 @@ const Index = () => {
       </div>
       <div className="footer-bottom">
         <ul className="footer-links">
-          <li>Главная</li>
-          <li>Исследовать</li>
-          <li>Агентство</li>
-          <li>Блог</li>
-          <li>О нас</li>
-          <li>Контакты</li>
+          {routes.map((link, index) => (
+            <li key={index}>
+              <NavLink
+                to={link.path}
+                className={({ isActive }) =>
+                  isActive ? "footer-link active" : "footer-link"
+                }
+              >
+                {link.content}
+              </NavLink>
+            </li>
+          ))}
         </ul>
-        <p>Copyright Tanah Air Studio</p>
+        <p>ItKey Company</p>
       </div>
     </footer>
   );

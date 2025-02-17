@@ -3,7 +3,9 @@ import { motion } from "framer-motion";
 import AOS from "aos";
 import "aos/dist/aos.css";
 import "./about.css";
-
+import HeroAbout from "../../assets/Images/HeroOne.jpg";
+import { Carousel } from "antd";
+import CarouselContainer from "../../components/carousel/carousel";
 const About = () => {
   const teamMembers = [
     {
@@ -107,35 +109,9 @@ const About = () => {
   return (
     <div className="about-page">
       {/* Hero Section */}
-      <section
-        className="about-hero-section"
-        style={{
-          backgroundImage: `linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), 
-          url('https://images.unsplash.com/photo-1582407947304-fd86f028f716?ixlib=rb-4.0.3')`,
-        }}
-      >
-        <div className="about-hero-content">
-          <motion.h1
-            initial={{ y: 50, opacity: 0 }}
-            animate={{ y: 0, opacity: 1 }}
-            transition={{ delay: 0.2 }}
-          >
-            Создаем пространство для жизни
-          </motion.h1>
-          <motion.p
-            initial={{ y: 50, opacity: 0 }}
-            animate={{ y: 0, opacity: 1 }}
-            transition={{ delay: 0.4 }}
-          >
-            Более 10 лет опыта в сфере недвижимости
-          </motion.p>
-          <motion.button
-            className="cta-button"
-            whileHover={{ scale: 1.05 }}
-            whileTap={{ scale: 0.95 }}
-          >
-            Узнать больше
-          </motion.button>
+      <section className="about-hero-section">
+        <div className="carousel-about">
+          <CarouselContainer />
         </div>
       </section>
 

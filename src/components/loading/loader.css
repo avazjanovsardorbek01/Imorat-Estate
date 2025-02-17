@@ -1,29 +1,30 @@
-/* loader.css */
 :root {
-  --loader-primary: #10b981;
-  --loader-secondary: #6ee7b7;
-  --loader-background: #ffffff;
+  --loader-primary: #1e3a8a;
+  --loader-secondary: #3b82f6;
+  --loader-background: #f8fafc;
   --loader-size: 50px;
-  --loader-border-size: 4px;
+  --loader-border-size: 5px;
 }
 
 .loader {
   display: flex;
-  justify-content: center;
+  justify-content: flex-start; /* Прижимаем к левому краю */
   align-items: center;
   min-height: 100vh;
   background: var(--loader-background);
+  padding-left: 40px; /* Немного отступа слева */
 }
 
 .spinner {
   width: var(--loader-size);
   height: var(--loader-size);
-  border: var(--loader-border-size) solid #f3f3f3;
+  border: var(--loader-border-size) solid transparent;
   border-top: var(--loader-border-size) solid var(--loader-primary);
-  border-right: var(--loader-border-size) solid var(--loader-primary);
+  border-right: var(--loader-border-size) solid var(--loader-secondary);
   border-radius: 50%;
-  animation: spin 1s linear infinite;
-  box-shadow: 0 4px 15px rgba(16, 185, 129, 0.1);
+  animation: spin 1s linear infinite, shadowPulse 2s ease-in-out infinite;
+  box-shadow: 0 4px 15px rgba(30, 58, 138, 0.2);
+  margin: 0 auto;
 }
 
 @keyframes spin {
@@ -35,19 +36,14 @@
   }
 }
 
-/* Дополнительный эффект тени при вращении */
 @keyframes shadowPulse {
   0% {
-    box-shadow: 0 4px 15px rgba(16, 185, 129, 0.1);
+    box-shadow: 0 4px 15px rgba(30, 58, 138, 0.2);
   }
   50% {
-    box-shadow: 0 4px 25px rgba(16, 185, 129, 0.2);
+    box-shadow: 0 4px 30px rgba(30, 58, 138, 0.4);
   }
   100% {
-    box-shadow: 0 4px 15px rgba(16, 185, 129, 0.1);
+    box-shadow: 0 4px 15px rgba(30, 58, 138, 0.2);
   }
-}
-
-.spinner {
-  animation: spin 1s linear infinite, shadowPulse 2s ease-in-out infinite;
 }

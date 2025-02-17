@@ -1,135 +1,194 @@
-// import React, { useState, useEffect } from "react";
-// import Map from "../../assets/Images/Map.png";
-// import "./property.css";
-// import Listings from "../../components/cards/listings";
-// import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-// import { faSearch } from "@fortawesome/free-solid-svg-icons"; // FontAwesome Search Icon
-// import axios from "axios";
+import { useEffect, useState } from "react";
+import { motion } from "framer-motion";
+import { useNavigate } from "react-router-dom";
+import "./property.css";
+import ErrorPhoto from "../../assets/Images/404-error.jpg";
+import HeroThree from "../../assets/Images/HeroThree.png";
 
-// const Index = () => {
-//   const [currentPage, setCurrentPage] = useState(1);
-//   const [totalPages, setTotalPages] = useState(1);
+const Property = () => {
+  const [properties, setProperties] = useState([]);
+  const [loading, setLoading] = useState(false);
+  const [error, setError] = useState(null);
+  const [activeFilter, setActiveFilter] = useState("all");
+  const navigate = useNavigate();
 
-//   useEffect(() => {
-//     // Делаем запрос для получения количества объектов недвижимости
-//     const fetchData = async () => {
-//       try {
-//         const response = await axios.get("https://api.example.com/properties", {
-//           params: {
-//             page: currentPage, // Текущая страница
-//             limit: 10, // Количество объектов на странице
-//           },
-//         });
-//         const totalItems = response.data.totalCount; // Получаем общее количество объектов
-//         setTotalPages(Math.ceil(totalItems / 10)); // Расчет количества страниц
-//       } catch (error) {
-//         console.error("Ошибка при получении данных:", error);
-//       }
-//     };
+  useEffect(() => {
+    fetchProperties();
+  }, []);
 
-//     fetchData();
-//   }, [currentPage]); // Срабатывает при изменении страницы
+  const fetchProperties = async () => {
+    setLoading(true);
+    try {
+      const response = await fetch("http://127.0.0.1/api/server/virtuoso", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({
+          filter: {},
+          limit: 1000,
+          page: 0,
+        }),
+      });
 
-//   const handlePrevPage = () => {
-//     if (currentPage > 1) {
-//       setCurrentPage(currentPage - 1);
-//     }
-//   };
+      if (!response.ok)
+        throw new Error(`HTTP error status: ${response.status}`);
+      const result = await response.json();
 
-//   const handleNextPage = () => {
-//     if (currentPage < totalPages) {
-//       setCurrentPage(currentPage + 1);
-//     }
-//   };
+      if (Array.isArray(result?.data)) {
+        const mergedProperties = result.data.map((property, index) => ({
+          ...property,
+          image: result.images?.[index] || "/no-image.jpg",
+        }));
+        setProperties(mergedProperties);
+      }
+    } catch (error) {
+      setError(error.message);
+    } finally {
+      setLoading(false);
+    }
+  };
 
-//   return (
-//     <div className="container">
-//       <section className="Property-Hero">
-//         <img src={Map} alt="Map" className="hero-img" />
-//         <div className="bottom-carousel">
-//           <div className="buttons-trade">
-//             <button className="btn rent">Покупка</button>
-//             <button className="btn sell">Аренда</button>
-//           </div>
-//           <div className="form-search">
-//             <select className="first-select">
-//               <option value="">Выберите город</option>
-//               <option value="Toshkent">Ташкент</option>
-//               <option value="Samarqand">Самарканд</option>
-//               <option value="Buxoro">Бухара</option>
-//               <option value="Xiva">Хива</option>
-//               <option value="Namangan">Наманган</option>
-//               <option value="Andijon">Андижан</option>
-//               <option value="Farg'ona">Фергана</option>
-//             </select>
+  const containerVariants = {
+    hidden: { opacity: 0 },
+    visible: {
+      opacity: 1,
+      transition: {
+        staggerChildren: 0.1,
+      },
+    },
+  };
 
-//             <input
-//               type="number"
-//               placeholder="Минимальная цена ($)"
-//               className="input-field"
-//             />
-//             <input
-//               type="number"
-//               placeholder="Максимальная цена ($)"
-//               className="input-field"
-//             />
+  const itemVariants = {
+    hidden: { y: 20, opacity: 0 },
+    visible: {
+      y: 0,
+      opacity: 1,
+    },
+  };
 
-//             <input
-//               type="number"
-//               placeholder="Площадь (м²)"
-//               className="input-field"
-//             />
+  return (
+    <div className="property-page">
+      {/* Hero Section */}
+      {/* Hero Section */}
+      <motion.section
+        className="property-hero"
+        initial={{ opacity: 0 }}
+        animate={{ opacity: 1 }}
+        transition={{ duration: 1 }}
+        style={{
+          backgroundImage: `url(${HeroThree})`,
+          backgroundSize: "cover",
+          backgroundPosition: "center",
+          height: "150px", // Можно изменить по необходимости
+          display: "flex",
+          alignItems: "center",
+          justifyContent: "center",
+          color: "#fff",
+          textAlign: "center",
+        }}
+      >
+        <div className="hero-content">
+          <motion.h1
+            initial={{ y: -50, opacity: 0 }}
+            animate={{ y: 0, opacity: 1 }}
+            transition={{ delay: 0.2 }}
+          ></motion.h1>
+          <motion.p
+            initial={{ y: 50, opacity: 0 }}
+            animate={{ y: 0, opacity: 1 }}
+            transition={{ delay: 0.4 }}
+          ></motion.p>
+        </div>
+      </motion.section>
 
-//             <select className="first-select">
-//               <option value="">Выберите категорию</option>
-//               <option value="Kvartira">Квартира</option>
-//               <option value="Uy">Дом</option>
-//               <option value="Ofis">Офис</option>
-//               <option value="Yer uchastkasi">Земельный участок</option>
-//             </select>
+      {/* Filter Section */}
+      <section className="filter-section">
+        <motion.div
+          className="filter-buttons"
+          initial={{ y: 20, opacity: 0 }}
+          animate={{ y: 0, opacity: 1 }}
+          transition={{ delay: 0.6 }}
+        >
+          {/* <button
+            className={activeFilter === "all" ? "active" : ""}
+            onClick={() => setActiveFilter("all")}
+          >
+            Все
+          </button>
+          <button
+            className={activeFilter === "residential" ? "active" : ""}
+            onClick={() => setActiveFilter("residential")}
+          >
+            Жилая
+          </button>
+          <button
+            className={activeFilter === "commercial" ? "active" : ""}
+            onClick={() => setActiveFilter("commercial")}
+          >
+            Коммерческая
+          </button> */}
+        </motion.div>
+      </section>
 
-//             <button className="search-btn">
-//               <FontAwesomeIcon icon={faSearch} className="search-icon" />
-//               Поиск
-//             </button>
-//           </div>
-//         </div>
-//       </section>
-//       <section className="Property-cards">
-//         <Listings currentPage={currentPage} />
-//         <Listings currentPage={currentPage} />
-//         <Listings currentPage={currentPage} />
-//       </section>
-//       <div className="pagination">
-//         <button
-//           className="prev"
-//           onClick={handlePrevPage}
-//           disabled={currentPage === 1}
-//         >
-//           &lt;
-//         </button>
+      {/* Properties Grid */}
+      <section className="properties-section">
+        {loading ? (
+          <div className="loader"></div>
+        ) : error ? (
+          <div className="error-property">
+            <img src={ErrorPhoto} alt="Ошибка загрузки" />
+          </div>
+        ) : (
+          <motion.div
+            className="properties-grid"
+            variants={containerVariants}
+            initial="hidden"
+            animate="visible"
+          >
+            {properties.map((property) => (
+              <motion.div
+                key={property.id}
+                className="property-card"
+                variants={itemVariants}
+                whileHover={{ y: -10, transition: { duration: 0.3 } }}
+                onClick={() => navigate(`/show/${property.id}`)}
+              >
+                <div className="card-image">
+                  <img
+                    src={`http://127.0.0.1${property.image[0]}`}
+                    alt={property.zagolovok}
+                  />
+                  y{" "}
+                </div>
+                <div className="card-content">
+                  <h3 className="price-card">
+                    ${property.system_prod_price || "Цена не указанна "}
+                  </h3>
+                  <h3>{property.zagolovok || "Без названия"}</h3>
+                  <div className="property-details">
+                    <span>
+                      <i className="fas fa-map-marker-alt"></i>{" "}
+                      {property.gorod || "Не указан"}
+                    </span>
+                    <span>
+                      <i className="fas fa-ruler-combined"></i>{" "}
+                      {property.obshhaya_ploshhad
+                        ? `${property.obshhaya_ploshhad} м²`
+                        : "Не указана"}
+                    </span>
+                    <span>
+                      <i className="fas fa-home"></i>{" "}
+                      {property.tip_nedvizhimosti?.[0] || "Не указан"}
+                    </span>
+                    <button className="btn-more">Подробнее</button>
+                  </div>
+                </div>
+              </motion.div>
+            ))}
+          </motion.div>
+        )}
+      </section>
+    </div>
+  );
+};
 
-//         {/* Отображение номеров страниц */}
-//         {Array.from({ length: totalPages }, (_, index) => (
-//           <button
-//             key={index + 1}
-//             onClick={() => setCurrentPage(index + 1)}
-//             className={currentPage === index + 1 ? "active" : ""}
-//           >
-//             {index + 1}
-//           </button>
-//         ))}
-
-//         <button
-//           className="next"
-//           onClick={handleNextPage}
-//           disabled={currentPage === totalPages}
-//         >
-//           &gt;
-//         </button>
-//       </div>
-//     </div>
-//   );
-// };
-
-// export default Index;
+export default Property;

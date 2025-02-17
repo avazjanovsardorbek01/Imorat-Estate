@@ -1,6 +1,5 @@
-// Loader.js
 import React from "react";
-import "./loader.css"; // CSS faylini qo'shish
+import "./loader.css"; // Подключаем стили
 
 const Loader = () => {
   return (

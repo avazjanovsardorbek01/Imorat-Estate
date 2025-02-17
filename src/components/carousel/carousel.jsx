@@ -1,9 +1,9 @@
 import React, { useState } from "react";
 import { Carousel } from "antd";
 import { LeftOutlined, RightOutlined } from "@ant-design/icons";
-import HeroOne from "../../assets/Images/Hero-One.jpg";
-import HeroTwo from "../../assets/Images/Hero-Two.jpg";
-import HeroThree from "../../assets/Images/Hero-Three.jpg";
+import HeroOne from "../../assets/Images/HeroOne.jpg";
+import HeroTwo from "../../assets/Images/HeroTwo.jpg";
+import HeroThree from "../../assets/Images/HeroThree.png";
 import "./carousel.css";
 
 const CarouselContainer = () => {
@@ -13,7 +13,6 @@ const CarouselContainer = () => {
     <div className="carousel-container">
       <Carousel
         autoplay
-        arrows
         dots={true}
         // prevArrow={<LeftOutlined className="custom-arrow " />}
         // nextArrow={<RightOutlined className="custom-arrow " />}

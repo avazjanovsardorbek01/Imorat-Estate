@@ -11,7 +11,7 @@ import About from "../pages/about/about";
 import Contact from "../pages/contact/contact";
 import Apartments from "../components/products/apartmentlist";
 import SingleApartmentPage from "../components/show/SingleApartmentPage";
-
+import Property from "../pages/propety/property";
 const Index = () => {
   const router = createBrowserRouter(
     createRoutesFromElements(
@@ -19,6 +19,7 @@ const Index = () => {
         <Route path="/" element={<Home />} />
         <Route path="/apartments" element={<Apartments />} />
         <Route path="show/:id" element={<SingleApartmentPage />} />
+        <Route path="/property" element={<Property />} />
         <Route path="/about" element={<About />} />
         <Route path="/contact" element={<Contact />} />
       </Route>
