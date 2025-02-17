@@ -23,7 +23,7 @@ const Index = () => {
     <div className="main-container">
       <section className="hero">
         <div className="carousel-home">
-        <Carousel />
+          <Carousel />
         </div>
       </section>
       <section className="apartments">

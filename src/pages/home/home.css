@@ -9,6 +9,28 @@
   --border: rgba(30, 58, 138, 0.1);
 }
 
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: "Arial", sans-serif;
+  line-height: 1.6;
+  color: var(--text-dark);
+  background-color: var(--background);
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+img {
+  max-width: 100%;
+  height: auto;
+}
 /* Общие стили */
 .main-container {
   max-width: 1200px;
@@ -18,15 +40,21 @@
 
 /* Hero Section */
 .hero {
-  width: 100%;
   min-height: 80vh;
-  position: relative;
   margin-bottom: 60px;
 }
 
-.carousel-home {
-  margin-top: -2px;
+@media (max-width: 768px) {
+  .hero {
+    min-height: 50vh;
+    margin-bottom: -200px;
+  }
 }
+
+/* .carousel-home {
+  margin-top: -2px;
+} */
+
 /* Advantages Section */
 .advantages {
   padding: 80px 0;
@@ -74,6 +102,28 @@
 
 .advantage-card p {
   color: var(--text-light);
+}
+.advantages {
+  padding: 80px 0;
+  background: linear-gradient(135deg, #f8fafc 0%, #f1f5f9 100%);
+}
+
+.advantages-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 30px;
+}
+
+@media (max-width: 1200px) {
+  .advantages-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 768px) {
+  .advantages-grid {
+    grid-template-columns: 1fr;
+  }
 }
 
 /* Dream Section */
@@ -186,6 +236,23 @@
   border-radius: 20px;
 }
 
+.dream {
+  padding: 100px 0;
+  background: #fff;
+}
+
+.dream-content {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 60px;
+  align-items: center;
+}
+
+@media (max-width: 1200px) {
+  .dream-content {
+    grid-template-columns: 1fr;
+  }
+}
 /* Credit Section */
 .credit {
   padding: 100px 0;
@@ -318,6 +385,23 @@
   transform: scale(1.1);
 }
 
+.credit {
+  padding: 100px 0;
+  background: linear-gradient(135deg, #f8fafc 0%, #f1f5f9 100%);
+}
+
+.credit-container {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 60px;
+  align-items: center;
+}
+
+@media (max-width: 1200px) {
+  .credit-container {
+    grid-template-columns: 1fr;
+  }
+}
 /* Testimonials Section */
 .testimonials {
   padding: 80px 0;
@@ -382,6 +466,22 @@
   font-size: 14px;
 }
 
+.testimonials {
+  padding: 80px 0;
+  background: var(--surface);
+}
+
+.testimonials-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 30px;
+}
+
+@media (max-width: 768px) {
+  .testimonials-grid {
+    grid-template-columns: 1fr;
+  }
+}
 /* Life House Section */
 .life-house {
   text-align: center;
@@ -416,7 +516,24 @@
   transform: translateY(-3px);
   box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
 }
+.life-house {
+  text-align: center;
+  padding: 60px 20px;
+  background: linear-gradient(
+    135deg,
+    var(--primary) 0%,
+    var(--primary-light) 100%
+  );
+  color: white;
+  border-radius: 20px;
+  margin: 40px 0;
+}
 
+@media (max-width: 768px) {
+  .life-house {
+    padding: 40px 15px;
+  }
+}
 /* Анимации */
 @keyframes fadeInUp {
   from {
@@ -444,18 +561,68 @@
 .credit-image-wrapper {
   animation: floatAnimation 6s ease-in-out infinite;
 }
+button {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  background: linear-gradient(
+    135deg,
+    var(--primary) 0%,
+    var(--primary-light) 100%
+  );
+  color: white;
+  padding: 1rem 2rem;
+  border: none;
+  border-radius: 50px;
+  font-size: 1.1rem;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
 
+button:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+}
+/* 
 /* Медиа запросы */
-@media (max-width: 1024px) {
-  .advantages-grid,
-  .dream-content,
-  .credit-container {
-    grid-template-columns: 1fr;
+@media (max-width: 1400px) {
+  /* xxl */
+  .main-container {
+    max-width: 1140px;
+  }
+
+  .advantages-grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+
+  .dream-content {
     gap: 40px;
   }
 
-  .text-content,
-  .credit-content {
+  .credit-container {
+    gap: 40px;
+  }
+}
+
+@media (max-width: 1200px) {
+  /* xl */
+  .main-container {
+    max-width: 960px;
+  }
+
+  .advantages-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .dream-content {
+    grid-template-columns: 1fr;
+  }
+
+  .credit-container {
+    grid-template-columns: 1fr;
+  }
+
+  .text-content {
     padding-right: 0;
     text-align: center;
   }
@@ -470,14 +637,18 @@
   }
 }
 
-@media (max-width: 768px) {
+@media (max-width: 992px) {
+  /* lg */
   .main-container {
-    padding: 0 15px;
+    max-width: 720px;
   }
 
   .section-title {
     font-size: 28px;
-    margin-bottom: 30px;
+  }
+
+  .advantages-grid {
+    grid-template-columns: repeat(2, 1fr);
   }
 
   .features-grid {
@@ -497,29 +668,80 @@
   }
 }
 
-@media (max-width: 480px) {
+@media (max-width: 768px) {
+  /* md */
+  .main-container {
+    max-width: 540px;
+  }
+
   .advantages-grid {
     grid-template-columns: 1fr;
   }
-}
-.credit-title {
-  font-size: 1.8rem;
+
+  .section-title {
+    font-size: 24px;
+  }
+
+  .credit-title {
+    font-size: 1.8rem;
+  }
+
+  .credit-subtitle {
+    font-size: 1.3rem;
+  }
+
+  .credit-button {
+    width: 100%;
+    justify-content: center;
+  }
+
+  .life-house {
+    margin: 20px 15px;
+    padding: 40px 15px;
+  }
+
+  .life-house p {
+    font-size: 1.2rem;
+  }
 }
 
-.credit-subtitle {
-  font-size: 1.3rem;
-}
+@media (max-width: 576px) {
+  /* sm */
+  .main-container {
+    max-width: 100%;
+    padding: 0 15px;
+  }
 
-.credit-button {
-  width: 100%;
-  justify-content: center;
-}
+  .hero {
+    min-height: 60vh;
+  }
 
-.life-house {
-  margin: 20px 15px;
-  padding: 40px 15px;
-}
+  .advantages {
+    padding: 40px 0;
+  }
 
-.life-house p {
-  font-size: 1.2rem;
+  .dream {
+    padding: 60px 0;
+  }
+
+  .credit {
+    padding: 60px 0;
+  }
+
+  .testimonials {
+    padding: 40px 0;
+  }
+
+  .life-house {
+    padding: 30px 15px;
+  }
+
+  .life-house p {
+    font-size: 1rem;
+  }
+
+  .life-house button {
+    padding: 0.8rem 1.5rem;
+    font-size: 1rem;
+  }
 }

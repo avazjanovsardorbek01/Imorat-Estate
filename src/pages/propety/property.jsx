@@ -84,6 +84,8 @@ const Property = () => {
           justifyContent: "center",
           color: "#fff",
           textAlign: "center",
+          maxWidth: "1200px",
+          margin: "0 auto",
         }}
       >
         <div className="hero-content">

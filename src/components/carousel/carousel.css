@@ -1,12 +1,15 @@
 /* Основные стили */
 .carousel-container {
   position: relative;
-  width: calc(100% - 40px);
+  width: 1200px;
   height: 500px;
   overflow: hidden;
-  margin: 20px;
+  margin: 20px auto; /* Центровка по горизонтали */
   padding-top: 60px;
   border-radius: 20px;
+  display: block;
+  /* Для центровки на всех устройствах */
+  max-width: 1200px; /* Максимальная ширина */
 }
 
 .carousel-wrap {
@@ -138,11 +141,11 @@
 }
 
 /* Медиа запросы */
+
 /* Large Desktop (1920px и выше) */
 @media (min-width: 1920px) {
   .carousel-container {
     height: 600px;
-    max-width: 1800px;
     margin: 30px auto;
   }
 }
@@ -151,7 +154,6 @@
 @media (min-width: 1440px) and (max-width: 1919px) {
   .carousel-container {
     height: 550px;
-    max-width: 1400px;
     margin: 25px auto;
   }
 }
@@ -160,7 +162,6 @@
 @media (min-width: 1280px) and (max-width: 1439px) {
   .carousel-container {
     height: 500px;
-    max-width: 1200px;
     margin: 20px auto;
   }
 }
@@ -226,7 +227,6 @@
     width: 40px;
   }
 }
-
 /* Mobile Large (480px - 599px) */
 @media (min-width: 480px) and (max-width: 599px) {
   .carousel-container {

@@ -2,6 +2,7 @@ import { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import "./apartmentlist.css";
 import ErrorPhoto from "../../assets/Images/404-error.jpg";
+
 export default function Apartments() {
   const [apartments, setApartments] = useState([]);
   const [loading, setLoading] = useState(false);
@@ -88,6 +89,14 @@ export default function Apartments() {
     page * perPage
   );
   const totalPages = Math.ceil(apartments.length / perPage);
+
+  const handlePrevious = () => {
+    if (page > 1) setPage(page - 1);
+  };
+
+  const handleNext = () => {
+    if (page < totalPages) setPage(page + 1);
+  };
 
   return (
     <div className="apartment-list">
@@ -183,7 +192,7 @@ export default function Apartments() {
               <h3>{item.zagolovok || "Без названия"}</h3>
               <div className="apartment-details">
                 <span>
-                  <i className="fas fa-map-marker-alt"></i>{" "}
+                  <i id="housecha" className="fas fa-map-marker-alt"></i>{" "}
                   {item.gorod || "Не указан"}
                 </span>
                 <span>
@@ -204,15 +213,20 @@ export default function Apartments() {
       </div>
 
       <div className="pagination">
-        {Array.from({ length: totalPages }, (_, i) => (
-          <button
-            key={i + 1}
-            onClick={() => setPage(i + 1)}
-            className={page === i + 1 ? "active" : ""}
-          >
-            {i + 1}
-          </button>
-        ))}
+        <button
+          className="pagination-button"
+          onClick={() => setPage(page - 1)}
+          disabled={page === 1}
+        >
+          Предыдущий
+        </button>
+        <button
+          className="pagination-button"
+          onClick={() => setPage(page + 1)}
+          disabled={page === totalPages}
+        >
+          Следующий
+        </button>
       </div>
     </div>
   );

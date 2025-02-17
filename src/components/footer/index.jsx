@@ -14,16 +14,15 @@ const Index = () => {
           <div className="footer-section">
             <h3>Сделайте ваш дом более современным</h3>
             <p>
-              Amet minim mollit non deserunt ullamco est sit aliqua dolor do
-              amet sint. Velit officia consequat duis enim.
+              Преобразите ваш дом с помощью стильных и удобных решений, которые
+              обеспечат комфорт и уют в каждой комнате.
             </p>
           </div>
           <div className="footer-section">
             <h3>Наши услуги</h3>
-            <ul>
+            <ul style={{ display: "flex", flexDirection: "column" }}>
               <li>Аренда домов</li>
               <li>Продажа квартир</li>
-              <li>Аренда вилл</li>
             </ul>
           </div>
           <div className="footer-section">

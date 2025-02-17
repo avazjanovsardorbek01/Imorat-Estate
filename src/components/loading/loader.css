@@ -1,49 +1,25 @@
-:root {
-  --loader-primary: #1e3a8a;
-  --loader-secondary: #3b82f6;
-  --loader-background: #f8fafc;
-  --loader-size: 50px;
-  --loader-border-size: 5px;
-}
-
-.loader {
+/* Контейнер для центрирования */
+.loading-container {
   display: flex;
-  justify-content: flex-start; /* Прижимаем к левому краю */
+  justify-content: center;
   align-items: center;
-  min-height: 100vh;
-  background: var(--loader-background);
-  padding-left: 40px; /* Немного отступа слева */
+  min-height: 100vh; /* По вертикали на всю высоту */
+  background-color: #f8fafc; /* Светлый фон для контраста */
 }
 
-.spinner {
-  width: var(--loader-size);
-  height: var(--loader-size);
-  border: var(--loader-border-size) solid transparent;
-  border-top: var(--loader-border-size) solid var(--loader-primary);
-  border-right: var(--loader-border-size) solid var(--loader-secondary);
-  border-radius: 50%;
-  animation: spin 1s linear infinite, shadowPulse 2s ease-in-out infinite;
-  box-shadow: 0 4px 15px rgba(30, 58, 138, 0.2);
-  margin: 0 auto;
+/* Стиль для кружка */
+.loader {
+  width: 50px;
+  height: 50px;
+  border-radius: 50%; /* Делаем элемент круглым */
+  border: 4px solid #0000; /* Прозрачная граница */
+  border-top: 4px solid #25b09b; /* Цвет верхней границы */
+  animation: rotate 1s infinite linear; /* Анимация вращения */
 }
 
-@keyframes spin {
-  0% {
-    transform: rotate(0deg);
-  }
+/* Анимация вращения */
+@keyframes rotate {
   100% {
-    transform: rotate(360deg);
-  }
-}
-
-@keyframes shadowPulse {
-  0% {
-    box-shadow: 0 4px 15px rgba(30, 58, 138, 0.2);
-  }
-  50% {
-    box-shadow: 0 4px 30px rgba(30, 58, 138, 0.4);
-  }
-  100% {
-    box-shadow: 0 4px 15px rgba(30, 58, 138, 0.2);
+    transform: rotate(360deg); /* Полный оборот */
   }
 }

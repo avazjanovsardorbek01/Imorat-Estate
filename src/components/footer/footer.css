@@ -184,17 +184,48 @@
 }
 
 /* Responsive Design */
-@media (max-width: 1024px) {
+
+/* Extra small screens (≥576px) */
+/* Адаптация для экранов от 300px до 575px */
+@media (min-width: 300px) and (max-width: 575px) {
   .footer {
-    padding: 60px 0 0;
+    padding: 30px 0;
+    width: 650px; /* Уменьшаем отступы сверху и снизу */
   }
 
   .footer-content {
-    gap: 30px;
+    gap: 20px; /* Уменьшаем промежутки между элементами контента */
+  }
+
+  .footer-logo {
+    font-size: 26px; /* Уменьшаем размер шрифта логотипа */
+  }
+
+  .footer-section h3 {
+    font-size: 18px; /* Уменьшаем размер заголовков в секциях */
   }
 }
 
-@media (max-width: 768px) {
+@media (max-width: 575px) {
+  .footer {
+    padding: 30px 0;
+  }
+
+  .footer-content {
+    gap: 20px;
+  }
+
+  .footer-logo {
+    font-size: 26px;
+  }
+
+  .footer-section h3 {
+    font-size: 18px;
+  }
+}
+
+/* Small screens (≥576px) */
+@media (min-width: 576px) and (max-width: 767px) {
   .footer-logo {
     font-size: 28px;
     margin-bottom: 40px;
@@ -209,35 +240,57 @@
   }
 }
 
-@media (max-width: 480px) {
-  .footer {
-    padding: 40px 0 0;
+/* Medium screens (≥768px) */
+@media (min-width: 768px) and (max-width: 991px) {
+  .footer-logo {
+    font-size: 30px;
+    margin-bottom: 50px;
   }
 
   .footer-content {
-    grid-template-columns: 1fr;
+    grid-template-columns: repeat(3, 1fr);
   }
 
-  .footer-section {
-    text-align: center;
-  }
-
-  .footer-section h3::after {
-    left: 50%;
-    transform: translateX(-50%);
+  .footer-section h3 {
+    font-size: 18px;
   }
 
   .footer-links {
-    flex-direction: column;
-    gap: 15px;
+    gap: 25px;
+  }
+}
+
+/* Large screens (≥992px) */
+@media (min-width: 992px) and (max-width: 1199px) {
+  .footer-logo {
+    font-size: 32px;
+    margin-bottom: 60px;
   }
 
-  .footer-section ul li:hover {
-    padding-left: 0;
+  .footer-content {
+    grid-template-columns: repeat(4, 1fr);
   }
 
-  .footer-section ul li::before {
-    display: none;
+  .footer-section h3 {
+    font-size: 20px;
+  }
+
+  .footer-links {
+    gap: 30px;
+  }
+}
+
+/* Extra large screens (≥1200px) */
+@media (min-width: 1200px) and (max-width: 1399px) {
+  .footer-content {
+    gap: 40px;
+  }
+}
+
+/* Extra extra large screens (≥1400px) */
+@media (min-width: 1400px) {
+  .footer-content {
+    gap: 50px;
   }
 }
 

@@ -3,8 +3,8 @@ import "./loader.css"; // Подключаем стили
 
 const Loader = () => {
   return (
-    <div className="loader">
-      <div className="spinner"></div>
+    <div className="loading-container">
+      <div className="loader"></div>
     </div>
   );
 };
