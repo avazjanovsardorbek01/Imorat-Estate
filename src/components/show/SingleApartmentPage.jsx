@@ -189,13 +189,6 @@ const SingleApartmentPage = () => {
             >
               <FaPhone /> Связаться
             </motion.a>
-            <motion.button
-              className="btn-favorite"
-              whileHover={{ scale: 1.05 }}
-              whileTap={{ scale: 0.95 }}
-            >
-              <FaHeart /> В избранное
-            </motion.button>
           </div>
         </motion.div>
       </div>
