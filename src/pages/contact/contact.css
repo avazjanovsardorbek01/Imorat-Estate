@@ -19,7 +19,7 @@
 .contact-hero {
   height: 60vh;
   position: relative;
-  background-image: url('../../assets/Images/contact-hero.jpg');
+  background-image: url("../../assets/Images/contact-hero.jpg");
   background-size: cover;
   background-position: center;
   display: flex;
@@ -35,10 +35,7 @@
   left: 0;
   width: 100%;
   height: 100%;
-  background: linear-gradient(
-    rgba(30, 58, 138, 0.8),
-    rgba(37, 99, 235, 0.8)
-  );
+  background: linear-gradient(rgba(30, 58, 138, 0.8), rgba(37, 99, 235, 0.8));
 }
 
 .hero-content {

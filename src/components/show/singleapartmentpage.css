@@ -243,149 +243,151 @@
   }
 }
 
-/* === Медиазапросы по брейкпоинтам === */
-
-/* Small devices (sm: ≥576px) */
-@media (min-width: 576px) {
-  .single-apartment-page {
-    padding: 80px 20px;
+@media (min-width: 300px) and (max-width: 400px) {
+  .image-gallery-section {
+    width: 100%;
+    margin-left: -21px;
   }
-  .apartment-container {
-    gap: 25px;
-    padding: 20px;
-  }
-  .main-image-container {
-    height: 300px;
-  }
-  .thumbnail {
-    width: 70px;
-    height: 52px;
-  }
-  .property-header h1 {
-    font-size: 1.75rem;
-  }
-  .price-tag {
-    font-size: 1.1rem;
-  }
-  .property-main-features,
-  .property-additional-features {
-    grid-template-columns: repeat(2, 1fr);
+  .details-section {
+    margin-left: -30px;
+    display: flex;
+    flex-direction: column;
     gap: 15px;
-    padding: 15px;
   }
-  .property-description h3 {
-    font-size: 1.3rem;
-  }
-  .property-description p {
-    font-size: 1.05rem;
-  }
-  .btn-contact,
-  .btn-favorite {
-    padding: 12px;
-    font-size: 1.05rem;
-  }
-}
-
-/* Medium devices (md: ≥768px) */
-@media (min-width: 768px) {
-  .single-apartment-page {
-    padding: 100px 30px;
-  }
-  .apartment-container {
-    max-width: 720px;
-    grid-template-columns: 1fr;
-    gap: 30px;
-    padding: 25px;
-  }
-  .main-image-container {
-    height: 350px;
+  .action-buttons {
+    display: flex;
+    flex-direction: row;
+    gap: 94px;
+    margin-top: 10px;
+    margin: 0 auto;
   }
   .property-header h1 {
-    font-size: 2rem;
-  }
-  .price-tag {
     font-size: 1.2rem;
   }
+
+  .price-tag {
+    font-size: 0.9rem;
+  }
+
+  .property-description h3 {
+    font-size: 1rem;
+  }
+
+  .property-description p {
+    font-size: 0.9rem;
+  }
+
+  .btn-contact,
+  .btn-favorite {
+    font-size: 0.9rem;
+  }
+}
+/* Medium devices (tablets, 768px and up) */
+@media (min-width: 768px) {
+  .apartment-container {
+    grid-template-columns: 1fr 1fr;
+  }
+
   .property-main-features,
   .property-additional-features {
     grid-template-columns: 1fr 1fr;
-    gap: 20px;
-    padding: 20px;
   }
-  .property-description h3 {
-    font-size: 1.4rem;
-  }
-  .property-description p {
-    font-size: 1.1rem;
-  }
+
   .action-buttons {
     flex-direction: row;
   }
 }
 
-/* Large devices (lg: ≥992px) */
+/* Large devices (desktops, 992px and up) */
 @media (min-width: 992px) {
+  .single-apartment-page {
+    padding: 80px 30px;
+  }
+
   .apartment-container {
-    max-width: 960px;
-    grid-template-columns: 1fr 1fr;
-    gap: 40px;
-    padding: 30px;
+    grid-template-columns: 2fr 1fr;
+    gap: 30px;
   }
+
   .main-image-container {
-    height: 400px;
+    height: 350px;
   }
+
+  .thumbnail {
+    width: 80px;
+    height: 60px;
+  }
+
   .property-header h1 {
-    font-size: 2.5rem;
+    font-size: 2rem;
   }
+
   .price-tag {
-    font-size: 1.5rem;
+    font-size: 1.2rem;
   }
+
   .property-main-features,
   .property-additional-features {
-    grid-template-columns: repeat(3, 1fr);
-    gap: 20px;
-    padding: 25px;
+    grid-template-columns: 1fr 1fr 1fr;
   }
-}
 
-/* Extra large devices (xl: ≥1200px) */
-@media (min-width: 1200px) {
-  .apartment-container {
-    max-width: 1280px;
-    gap: 40px;
-    padding: 30px;
-  }
-  .property-header h1 {
-    font-size: 2.75rem;
-  }
-  .price-tag {
-    font-size: 1.6rem;
-  }
   .property-description h3 {
     font-size: 1.5rem;
   }
+
   .property-description p {
-    font-size: 1.2rem;
+    font-size: 1.1rem;
+  }
+
+  .btn-contact,
+  .btn-favorite {
+    font-size: 1.1rem;
   }
 }
 
-/* Extra extra large devices (xxl: ≥1400px) */
-@media (min-width: 1400px) {
+/* Extra large devices (large desktops, 1200px and up) */
+@media (min-width: 1200px) {
+  .single-apartment-page {
+    padding: 100px 50px;
+  }
+
   .apartment-container {
-    max-width: 1400px;
-    gap: 50px;
-    padding: 40px;
+    grid-template-columns: 3fr 1fr;
+    gap: 40px;
   }
+
+  .main-image-container {
+    height: 450px;
+  }
+
+  .thumbnail {
+    width: 100px;
+    height: 75px;
+  }
+
   .property-header h1 {
-    font-size: 3rem;
+    font-size: 2.5rem;
   }
+
   .price-tag {
-    font-size: 1.8rem;
+    font-size: 1.5rem;
   }
+
   .property-main-features,
   .property-additional-features {
-    grid-template-columns: repeat(3, 1fr);
-    gap: 25px;
-    padding: 30px;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+  }
+
+  .property-description h3 {
+    font-size: 1.8rem;
+  }
+
+  .property-description p {
+    font-size: 1.2rem;
+  }
+
+  .btn-contact,
+  .btn-favorite {
+    font-size: 1.2rem;
   }
 }
