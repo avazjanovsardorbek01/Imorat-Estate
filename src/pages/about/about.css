@@ -264,7 +264,7 @@
 /* CTA Section */
 .cta-section {
   padding: 100px 0;
-  background: linear-gradient(rgba(4, 106, 56, 0.9), rgba(4, 106, 56, 0.9)),
+  background: linear-gradient(rgba(22, 78, 167, 0.9), rgba(16, 9, 91, 0.9)),
     url("https://images.unsplash.com/photo-1560520653-9e0e4c89eb11")
       center/cover;
   text-align: center;
@@ -296,7 +296,7 @@
 
 .cta-button:hover {
   background: var(--primary-light);
-  color: var(--white);
+  color: white;
 }
 
 /* Медиа-запросы */

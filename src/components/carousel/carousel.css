@@ -175,7 +175,7 @@
 
 @media (max-width: 480px) {
   .carousel-container {
-    height: 200px; /* Уменьшаем высоту для мобильных устройств */
+    height: 200px;
     padding-top: 20px;
     margin-top: 65px;
   }

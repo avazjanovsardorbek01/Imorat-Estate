@@ -234,7 +234,9 @@ const About = () => {
       {/* CTA Section */}
       <section className="cta-section">
         <div className="cta-content">
-          <h2 data-aos="fade-up">Готовы найти дом мечты?</h2>
+          <h2 style={{ color: "white" }} data-aos="fade-up">
+            Готовы найти дом мечты?
+          </h2>
           <motion.button
             className="cta-button"
             whileHover={{ scale: 1.05 }}

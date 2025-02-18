@@ -1,6 +1,6 @@
 import React from "react";
 import { NavLink } from "react-router-dom";
-import routes from "../../router/routes"; // Импортируем routes
+import routes from "../../router/routes";
 import "./footer.css";
 
 const Index = () => {
@@ -29,16 +29,23 @@ const Index = () => {
             <h3>Поддержка</h3>
             <ul>
               <li>Обслуживание клиентов</li>
-              <li>Напишите нам</li>
+              <li>
+                <a href="https://t.me/mehagulyamova">Напишите нам</a>
+              </li>
               <li>Политика конфиденциальности</li>
             </ul>
           </div>
           <div className="footer-section">
             <h3>Социальные сети</h3>
             <ul>
-              <li>Facebook</li>
-              <li>Instagram</li>
-              <li>Twitter</li>
+              <li>
+                <a href="https://www.instagram.com/imoratestate?utm_source=ig_web_button_share_sheet&igsh=ZDNlZDc0MzIxNw==">
+                  Instagram
+                </a>
+              </li>
+              <li>
+                <a href="https://t.me/imoratestete">Telegram</a>
+              </li>
             </ul>
           </div>
         </div>

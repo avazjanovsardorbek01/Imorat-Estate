@@ -11,6 +11,14 @@ const Property = () => {
   const [error, setError] = useState(null);
   const [activeFilter, setActiveFilter] = useState("all");
   const navigate = useNavigate();
+  const [filters, setFilters] = useState({
+    category: "",
+    priceMin: "",
+    priceMax: "",
+    areaMin: "",
+    areaMax: "",
+    microDistrict: "",
+  });
 
   useEffect(() => {
     fetchProperties();
@@ -47,6 +55,19 @@ const Property = () => {
     }
   };
 
+  const handleFilterChange = (e) => {
+    const { name, value } = e.target;
+    setFilters((prev) => ({
+      ...prev,
+      [name]: value,
+    }));
+  };
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    setPage(1);
+    fetchApartments();
+  };
   const containerVariants = {
     hidden: { opacity: 0 },
     visible: {
@@ -67,7 +88,6 @@ const Property = () => {
 
   return (
     <div className="property-page">
-      {/* Hero Section */}
       {/* Hero Section */}
       <motion.section
         className="property-hero"
@@ -103,33 +123,65 @@ const Property = () => {
       </motion.section>
 
       {/* Filter Section */}
-      <section className="filter-section">
-        <motion.div
-          className="filter-buttons"
-          initial={{ y: 20, opacity: 0 }}
-          animate={{ y: 0, opacity: 1 }}
-          transition={{ delay: 0.6 }}
+      <form onSubmit={handleSubmit} className="form-search">
+        <select
+          name="category"
+          value={filters.category}
+          onChange={handleFilterChange}
+          className="first-select"
         >
-          {/* <button
-            className={activeFilter === "all" ? "active" : ""}
-            onClick={() => setActiveFilter("all")}
-          >
-            Все
-          </button>
-          <button
-            className={activeFilter === "residential" ? "active" : ""}
-            onClick={() => setActiveFilter("residential")}
-          >
-            Жилая
-          </button>
-          <button
-            className={activeFilter === "commercial" ? "active" : ""}
-            onClick={() => setActiveFilter("commercial")}
-          >
-            Коммерческая
-          </button> */}
-        </motion.div>
-      </section>
+          <option value="">Все</option>
+          <option value="Жилая">Жилая</option>
+          <option value="Коммерческая">Коммерческая</option>
+        </select>
+
+        <input
+          type="number"
+          name="priceMin"
+          placeholder="Стоимость от ($)"
+          value={filters.priceMin}
+          onChange={handleFilterChange}
+          className="input-field"
+        />
+        <input
+          type="number"
+          name="priceMax"
+          placeholder="Стоимость до ($)"
+          value={filters.priceMax}
+          onChange={handleFilterChange}
+          className="input-field"
+        />
+
+        <input
+          type="number"
+          name="areaMin"
+          placeholder="Площадь от (м²)"
+          value={filters.areaMin}
+          onChange={handleFilterChange}
+          className="input-field"
+        />
+        <input
+          type="number"
+          name="areaMax"
+          placeholder="Площадь до (м²)"
+          value={filters.areaMax}
+          onChange={handleFilterChange}
+          className="input-field"
+        />
+
+        <input
+          type="text"
+          name="microDistrict"
+          placeholder="Микрорайон"
+          value={filters.microDistrict}
+          onChange={handleFilterChange}
+          className="input-field"
+        />
+
+        <button type="submit" className="search-btn">
+          Применить фильтры
+        </button>
+      </form>
 
       {/* Properties Grid */}
       <section className="properties-section">
