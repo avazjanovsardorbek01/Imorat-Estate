@@ -177,6 +177,7 @@
   .carousel-container {
     height: 200px; /* Уменьшаем высоту для мобильных устройств */
     padding-top: 20px;
+    margin-top: 65px;
   }
 
   .custom-arrow {

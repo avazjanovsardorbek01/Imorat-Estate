@@ -1,7 +1,16 @@
 import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import { motion, AnimatePresence } from "framer-motion";
-import { FaMapMarkerAlt, FaRulerCombined, FaHome, FaPhone, FaHeart, FaBed, FaBath, FaParking } from "react-icons/fa";
+import {
+  FaMapMarkerAlt,
+  FaRulerCombined,
+  FaHome,
+  FaPhone,
+  FaHeart,
+  FaBed,
+  FaBath,
+  FaParking,
+} from "react-icons/fa";
 import "./singleapartmentpage.css";
 
 const SingleApartmentPage = () => {
@@ -95,7 +104,7 @@ const SingleApartmentPage = () => {
               onClick={() => setIsImageModalOpen(true)}
             />
           </div>
-          
+
           <motion.div className="image-thumbnails">
             {apartment.images.map((img, index) => (
               <motion.div
@@ -105,8 +114,8 @@ const SingleApartmentPage = () => {
                 whileTap={{ scale: 0.95 }}
                 onClick={() => setActiveImage(index)}
               >
-                <img 
-                  src={`http://127.0.0.1${img}`} 
+                <img
+                  src={`http://127.0.0.1${img}`}
                   alt={`Фото ${index + 1}`}
                   loading="lazy"
                 />
@@ -115,7 +124,7 @@ const SingleApartmentPage = () => {
           </motion.div>
         </motion.div>
 
-        <motion.div 
+        <motion.div
           className="details-section"
           initial={{ x: 100, opacity: 0 }}
           animate={{ x: 0, opacity: 1 }}
@@ -124,8 +133,8 @@ const SingleApartmentPage = () => {
           <div className="property-header">
             <motion.h1>{apartment.name}</motion.h1>
             <motion.div className="price-tag">
-              {apartment.system_prod_price 
-                ? `${apartment.system_prod_price.toLocaleString()} $` 
+              {apartment.system_prod_price
+                ? `${apartment.system_prod_price.toLocaleString()} $`
                 : "Цена по запросу"}
             </motion.div>
           </div>
@@ -137,7 +146,11 @@ const SingleApartmentPage = () => {
             </div>
             <div className="feature">
               <FaRulerCombined />
-              <span>{apartment.obshhaya_ploshhad ? `${apartment.obshhaya_ploshhad} м²` : "Площадь не указана"}</span>
+              <span>
+                {apartment.obshhaya_ploshhad
+                  ? `${apartment.obshhaya_ploshhad} м²`
+                  : "Площадь не указана"}
+              </span>
             </div>
             <div className="feature">
               <FaHome />
@@ -156,7 +169,9 @@ const SingleApartmentPage = () => {
             </div>
             <div className="feature">
               <FaParking />
-              <span>{apartment.parkovka ? "Есть парковка" : "Нет парковки"}</span>
+              <span>
+                {apartment.parkovka ? "Есть парковка" : "Нет парковки"}
+              </span>
             </div>
           </div>
 
@@ -164,16 +179,17 @@ const SingleApartmentPage = () => {
             <h3>Описание</h3>
             <p>{apartment.zagolovok || "Описание отсутствует"}</p>
           </div>
-
           <div className="action-buttons">
-            <motion.button 
+            <motion.a
+              href="https://t.me/mehagulyamova"
+              target="_blank"
               className="btn-contact"
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.95 }}
             >
               <FaPhone /> Связаться
-            </motion.button>
-            <motion.button 
+            </motion.a>
+            <motion.button
               className="btn-favorite"
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.95 }}
@@ -186,7 +202,7 @@ const SingleApartmentPage = () => {
 
       <AnimatePresence>
         {isImageModalOpen && (
-          <motion.div 
+          <motion.div
             className="image-modal"
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
