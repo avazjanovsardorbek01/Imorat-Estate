@@ -1,5 +1,4 @@
 import React, { useState } from "react";
-import axios from "axios";
 import { motion } from "framer-motion";
 import {
   FaUser,
@@ -7,8 +6,8 @@ import {
   FaPhone,
   FaMapMarkerAlt,
   FaClock,
-  FaBuilding,
 } from "react-icons/fa";
+import { postContact } from "../../api/api";
 import "./contact.css";
 
 const Contact = () => {
@@ -38,22 +37,9 @@ const Contact = () => {
     setSubmitSuccess(false);
 
     try {
-      const response = await axios.post(
-        `http://127.0.0.1/api/funnel`,
-        formData,
-        {
-          headers: {
-            "Content-Type": "application/json",
-          },
-        }
-      );
-
-      if (response.status === 200) {
-        setSubmitSuccess(true);
-        setFormData({ fullName: "", email: "", phone: "", message: "" });
-      } else {
-        throw new Error("Ошибка при отправке данных");
-      }
+      await postContact(formData);
+      setSubmitSuccess(true);
+      setFormData({ fullName: "", email: "", phone: "", message: "" });
     } catch (error) {
       setSubmitError("Ошибка при отправке, попробуйте снова.");
     } finally {
@@ -83,7 +69,6 @@ const Contact = () => {
       content: "Пн-Пт: 9:00 - 20:00",
     },
   ];
-
   return (
     <div className="contact-page">
       <motion.section
@@ -222,20 +207,20 @@ const Contact = () => {
       </div>
 
       {/* <motion.div
-        className="map-section"
-        initial={{ opacity: 0 }}
-        animate={{ opacity: 1 }}
-        transition={{ duration: 0.6, delay: 0.6 }}
-      >
-        <iframe
-          src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2000!2d0!3d0!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zM40zMCcwLjAiTiAwwrAwJzAuMCJF!5e0!3m2!1sen!2sus!4v1234567890"
-          width="100%"
-          height="450"
-          style={{ border: 0 }}
-          allowFullScreen=""
-          loading="lazy"
-        ></iframe>
-      </motion.div> */}
+      className="map-section"
+      initial={{ opacity: 0 }}
+      animate={{ opacity: 1 }}
+      transition={{ duration: 0.6, delay: 0.6 }}
+    >
+      <iframe
+        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2000!2d0!3d0!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zM40zMCcwLjAiTiAwwrAwJzAuMCJF!5e0!3m2!1sen!2sus!4v1234567890"
+        width="100%"
+        height="450"
+        style={{ border: 0 }}
+        allowFullScreen=""
+        loading="lazy"
+      ></iframe>
+    </motion.div> */}
     </div>
   );
 };
