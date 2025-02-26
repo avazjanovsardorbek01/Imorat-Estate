@@ -175,7 +175,9 @@ const SingleApartmentPage = () => {
 
           <div className="property-description">
             <h3>Описание</h3>
-            <p>{apartment.opisanie || "Описание отсутствует"}</p>
+            <p style={{ maxHeight: "200px", overflowY: "auto" }}>
+              {apartment.opisanie || "Описание отсутствует"}
+            </p>
           </div>
           <div className="action-buttons">
             <motion.a
