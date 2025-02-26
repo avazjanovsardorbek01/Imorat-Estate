@@ -32,7 +32,7 @@
 
 /* Image Gallery Section */
 .image-gallery-section {
-  width: 100%;
+  width: 700px;
 }
 
 .main-image-container {
@@ -104,7 +104,6 @@
 }
 
 .price-tag {
-  display: inline-block;
   background: linear-gradient(135deg, var(--primary), var(--primary-light));
   color: white;
   padding: 5px 10px;
@@ -243,66 +242,62 @@
   }
 }
 
-/* Базовые стили (для устройств XS, ниже 576px) */
-.single-apartment-page {
-  min-height: 57vh;
-  background-color: var(--surface);
-  padding: 60px 15px;
-}
-
-.apartment-container {
-  width: 100%;
-  margin: 0 auto;
-  display: grid;
-  grid-template-columns: 1fr;
-  gap: 20px;
-  background: white;
-  border-radius: 10px;
-  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
-  padding: 15px;
-}
-@media (min-width: 250px) and (max-width: 575px) {
+/* Медиа-запрос для устройств XS (200px и выше) */
+@media (min-width: 200px) and (max-width: 575px) {
   .apartment-container {
     padding: 10px;
   }
-
+  .image-gallery-section {
+    width: 340px;
+    margin: 0 auto;
+    margin-top: 12px;
+  }
+  .details-section {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    padding: 25px;
+  }
   .main-image-container {
-    height: 200px;
+    height: 150px;
   }
 
   .thumbnail {
-    width: 50px;
-    height: 40px;
+    width: 40px;
+    height: 30px;
   }
 
   .property-header h1 {
-    font-size: 1.25rem;
+    font-size: 1.1rem;
   }
 
   .price-tag {
-    font-size: 0.9rem;
+    font-size: 0.8rem;
   }
 
   .property-description h3 {
-    font-size: 1rem;
+    font-size: 0.9rem;
   }
 
   .property-description p {
-    font-size: 0.9rem;
+    font-size: 0.8rem;
   }
 
   .btn-contact,
   .btn-favorite {
-    font-size: 0.9rem;
+    font-size: 0.8rem;
   }
 }
 
 /* Медиа-запрос для устройств SM (576px и выше) */
-@media (min-width: 576px) {
+@media (min-width: 576px) and (max-width: 768px) {
   .apartment-container {
     padding: 20px;
   }
 
+  .image-gallery-section {
+    width: 515px;
+  }
   .main-image-container {
     height: 300px;
   }
@@ -335,11 +330,15 @@
 }
 
 /* Медиа-запрос для устройств MD (768px и выше) */
-@media (min-width: 768px) {
+@media (min-width: 768px) and (max-width: 992px) {
   .apartment-container {
     grid-template-columns: 1fr 1fr;
     gap: 30px;
-    padding: 25px;
+    /* padding: 25px; */
+    margin: 0 auto;
+  }
+  .image-gallery-section {
+    width: 515px;
   }
 
   .main-image-container {
@@ -447,5 +446,43 @@
   .btn-contact,
   .btn-favorite {
     font-size: 1.2rem;
+  }
+}
+
+/* Медиа-запрос для устройств XXL (1400px и выше) */
+@media (min-width: 1400px) {
+  .apartment-container {
+    max-width: 1320px;
+    padding: 50px;
+  }
+
+  .main-image-container {
+    height: 500px;
+  }
+
+  .thumbnail {
+    width: 160px;
+    height: 120px;
+  }
+
+  .property-header h1 {
+    font-size: 2.75rem;
+  }
+
+  .price-tag {
+    font-size: 1.5rem;
+  }
+
+  .property-description h3 {
+    font-size: 1.7rem;
+  }
+
+  .property-description p {
+    font-size: 1.25rem;
+  }
+
+  .btn-contact,
+  .btn-favorite {
+    font-size: 1.25rem;
   }
 }

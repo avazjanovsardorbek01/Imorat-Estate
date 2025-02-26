@@ -6,37 +6,36 @@ import "./about.css";
 import HeroAbout from "../../assets/Images/HeroOne.jpg";
 import { Carousel } from "antd";
 import CarouselContainer from "../../components/carousel/carousel";
+import Manager from "../../assets/Images/manager.png";
+import Agent from "../../assets/Images/agent.png";
+import Marketolog from "../../assets/Images/marketolog.jpg";
+import ClientOne from "../../assets/Images/ClientOne.jpg";
 const About = () => {
   const teamMembers = [
     {
-      name: "Анна Смирнова",
-      position: "CEO",
-      image: "https://images.unsplash.com/photo-1573496359142-b8d87734a5a2",
+      name: "Мехри Гулямова",
+      position: "Manager",
+      image: Manager,
     },
     {
-      name: "Михаил Петров",
-      position: "Главный риелтор",
-      image: "https://images.unsplash.com/photo-1560250097-0b93528c311a",
+      name: "Полторан Егор",
+      position: "Главный операционный директор",
+      image: Agent,
     },
     {
-      name: "Елена Иванова",
-      position: "Финансовый директор",
-      image: "https://images.unsplash.com/photo-1580489944761-15a19d654956",
-    },
-    {
-      name: "Дмитрий Козлов",
-      position: "Руководитель отдела продаж",
-      image: "https://images.unsplash.com/photo-1472099645785-5658abf4ff4e",
+      name: "Бауетдинов Рауф",
+      position: "Маркетолог",
+      image: Marketolog,
     },
   ];
 
   // Данные для отзывов
   const testimonials = [
     {
-      name: "Мария Соколова",
+      name: "Хуршид Жораев",
       role: "Владелец квартиры",
       text: "Благодаря команде профессионалов мы нашли идеальную квартиру за короткий срок. Очень довольны сервисом и отношением к клиентам.",
-      image: "https://images.unsplash.com/photo-1438761681033-6461ffad8d80",
+      image: ClientOne,
     },
     {
       name: "Александр Волков",
@@ -237,13 +236,16 @@ const About = () => {
           <h2 style={{ color: "white" }} data-aos="fade-up">
             Готовы найти дом мечты?
           </h2>
-          <motion.button
+          <motion.a
+            href="https://t.me/mehagulyamova"
             className="cta-button"
-            whileHover={{ scale: 1.05 }}
+            whileHover={{ scale: 1.05, transition: { duration: 0.3 } }}
             whileTap={{ scale: 0.95 }}
+            target="_blank"
+            rel="noopener noreferrer"
           >
             Связаться с нами
-          </motion.button>
+          </motion.a>
         </div>
       </section>
     </div>

@@ -215,9 +215,16 @@ const Property = () => {
                     y{" "}
                   </div>
                   <div className="card-content">
-                    <h3 className="price-card">
-                      ${property.system_prod_price || "Цена не указанна "}
+                    <h3 className="apartment-price">
+                      Цена:{" "}
+                      {property.system_prod_price ||
+                        property.system_prod_kom_price ||
+                        property.system_rent_price ||
+                        property.system_rent_kom_price ||
+                        "Не указана"}{" "}
+                      $
                     </h3>
+
                     <h3>{property.zagolovok || "Без названия"}</h3>
                     <div className="property-details">
                       <span>

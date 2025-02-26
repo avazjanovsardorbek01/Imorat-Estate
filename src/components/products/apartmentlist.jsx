@@ -183,12 +183,13 @@ export default function Apartments() {
             <div className="apartment-info">
               <h3 className="apartment-price">
                 Цена:{" "}
-                {item.system_prod_price
-                  ? `${item.system_prod_price || item.system_prod_kom_price} $`
-                  : ` ${
-                      item.system_rent_price || item.system_rent_kom_price
-                    } $`}
+                {item.system_prod_price ||
+                  item.system_prod_kom_price ||
+                  item.system_rent_price ||
+                  item.system_rent_kom_price ||
+                  "Не указана"}{" "}
               </h3>
+
               <h3>{item.zagolovok || "Без названия"}</h3>
               <div className="apartment-details">
                 <span>

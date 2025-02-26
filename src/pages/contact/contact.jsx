@@ -61,7 +61,7 @@ const Contact = () => {
     {
       icon: <FaEnvelope />,
       title: "Email",
-      content: "info@example.com",
+      content: "itkeyuzb@gmail.com",
     },
     {
       icon: <FaClock />,

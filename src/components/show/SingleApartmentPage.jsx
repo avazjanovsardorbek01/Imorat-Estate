@@ -10,6 +10,9 @@ import {
   FaBed,
   FaBath,
   FaParking,
+  FaPlayCircle,
+  FaPauseCircle,
+  FaMoneyBillWave,
 } from "react-icons/fa";
 import "./singleapartmentpage.css";
 
@@ -132,17 +135,12 @@ const SingleApartmentPage = () => {
         >
           <div className="property-header">
             <motion.h1>{apartment.name}</motion.h1>
-            <motion.div className="price-tag">
-              {apartment.system_prod_price
-                ? `${apartment.system_prod_price.toLocaleString()} $`
-                : "Цена по запросу"}
-            </motion.div>
           </div>
 
           <div className="property-main-features">
             <div className="feature">
-              <FaMapMarkerAlt />
-              <span>{apartment.gorod || "Город не указан"}</span>
+              <FaMoneyBillWave />
+              <span>${apartment.system_prod_price || "Цена не указан"}</span>
             </div>
             <div className="feature">
               <FaRulerCombined />
@@ -177,7 +175,7 @@ const SingleApartmentPage = () => {
 
           <div className="property-description">
             <h3>Описание</h3>
-            <p>{apartment.zagolovok || "Описание отсутствует"}</p>
+            <p>{apartment.opisanie || "Описание отсутствует"}</p>
           </div>
           <div className="action-buttons">
             <motion.a

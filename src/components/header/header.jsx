@@ -5,10 +5,9 @@ import { motion } from "framer-motion";
 import Logo from "../../assets/Images/logo.svg";
 import routes from "../../router/routes"; // Импортируем routes
 
-const Header = () => {
+const Header = ({ isDarkMode, toggleTheme }) => {
   const [isOpen, setIsOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
-  const [isDarkMode, setIsDarkMode] = useState(false);
 
   useEffect(() => {
     const handleScroll = () => {
@@ -18,11 +17,6 @@ const Header = () => {
     window.addEventListener("scroll", handleScroll);
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
-
-  const toggleTheme = () => {
-    setIsDarkMode(!isDarkMode);
-    document.body.classList.toggle("dark-mode");
-  };
 
   return (
     <>

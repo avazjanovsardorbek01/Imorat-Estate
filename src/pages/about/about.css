@@ -189,7 +189,7 @@
 
 .team-image {
   width: 100%;
-  height: 300px;
+  height: 350px;
   margin-bottom: 20px;
   border-radius: 15px;
   overflow: hidden;
@@ -358,4 +358,22 @@
 /* Плавная прокрутка */
 html {
   scroll-behavior: smooth;
+}
+.cta-button {
+  display: inline-block;
+  padding: 12px 24px;
+  background-color: #4756d8;
+  color: white;
+  font-size: 16px;
+  font-weight: bold;
+  border-radius: 8px;
+  text-decoration: none;
+  text-align: center;
+  transition: all 0.3s ease-in-out;
+  box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+.cta-button:hover {
+  background-color: #14498a;
+  box-shadow: 0px 6px 14px rgba(0, 0, 0, 0.15);
 }
