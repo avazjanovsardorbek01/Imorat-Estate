@@ -141,6 +141,27 @@
   gap: 1.5rem;
 }
 
+/* Phone number */
+.phone-number {
+  font-size: 1rem;
+  font-weight: 500;
+  color: var(--text);
+  text-decoration: none;
+  transition: color 0.3s ease;
+}
+
+.phone-number:hover {
+  color: var(--primary);
+}
+
+.dark-mode .phone-number {
+  color: #e2e8f0;
+}
+
+.dark-mode .phone-number:hover {
+  color: var(--primary-light);
+}
+
 /* Переключатель темы */
 .theme-switch {
   cursor: pointer;
@@ -314,6 +335,10 @@
 
   .nav-center {
     display: none;
+  }
+  .phone-number {
+    display: none !important;
+    background: red !important;
   }
 
   .burger {

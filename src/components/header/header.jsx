@@ -49,10 +49,11 @@ const Header = ({ isDarkMode, toggleTheme }) => {
           </div>
 
           <div className="nav-right">
-            <div className="theme-switch" onClick={toggleTheme}>
-              <div className={`switch-track ${isDarkMode ? "dark-mode" : ""}`}>
-                <div className="switch-thumb" />
-              </div>
+            <div>
+              <a href="tel:+998917777931" className="phone-number">
+                <i className="fas fa-phone-alt mr-2 text-indigo-400"></i>
+                +998 (91) 777-79-31
+              </a>
             </div>
 
             <div

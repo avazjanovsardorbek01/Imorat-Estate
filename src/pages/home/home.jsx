@@ -4,6 +4,7 @@ import Carousel from "../../components/carousel/carousel";
 import SearchHome from "../../assets/Images/SearchHome.jpg";
 import Credit from "../../assets/Images/Credit.jpeg";
 import ApartmentList from "../../components/products/apartmentlist";
+import { motion } from "framer-motion";
 import {
   FaStar,
   FaHome,
@@ -256,7 +257,16 @@ const Index = () => {
 
       <section className="life-house">
         <p>Получите роскошное и дешевое жилье с гарантией на всю жизнь.</p>
-        <button>Связаться сейчас</button>
+        <motion.a
+          href="https://t.me/mehagulyamova"
+          className="cta-button"
+          whileHover={{ scale: 1.05 }}
+          whileTap={{ scale: 0.95 }}
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          Связаться с нами
+        </motion.a>
       </section>
     </div>
   );
